@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Restart="*res://Mechanics/Restarting/Restart.tscn"
+PlayerStats="*res://Player/PlayerStats.tscn"
 
 [display]
 
