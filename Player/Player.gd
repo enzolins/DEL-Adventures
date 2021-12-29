@@ -18,10 +18,15 @@ onready var fall_gravity :float = ((-2.0 * jump_height) / (jump_time_to_descent 
 var velocity = Vector2.ZERO
 var direction
 var is_jumping = false
+var stats = PlayerStats
 
 #NODE VARIABLES
 onready var animatedSprite = $AnimatedSprite
 onready var collisionShape = $CollisionShape2D
+onready var swordHitbox = $HitboxPivot/SwordHitbox
+onready var hurtbox = $Hurtbox
+onready var swordCollision = $HitboxPivot/SwordHitbox/CollisionShape2D
+onready var timer = $Timer
 
 #STATE MACHINE
 enum{
@@ -35,11 +40,14 @@ var state = MOVE
 func _ready():
 	randomize()
 	animatedSprite.play("Idle")
-	
+	stats.connect("noHealth", self, "queue_free")
+	swordHitbox.knockback_vector = Vector2.RIGHT
+	swordCollision.disabled = true
 
 #PHYSICS PROCESS
 func _physics_process(delta):
 	velocity.y += get_gravity() * delta
+	disbleSwordCollision()
 	
 	match state:
 		MOVE:
@@ -62,11 +70,14 @@ func move_state(delta):
 	
 	if input_vector != Vector2.ZERO:
 		direction = input_vector
+		swordHitbox.knockback_vector = input_vector
 		#CHECK IF IT NEEDS FLIPPING
 		if direction.x > 0:
 			animatedSprite.flip_h = false
+			swordCollision.position.x = 17
 		if direction.x < 0:
 			animatedSprite.flip_h = true
+			swordCollision.position.x = -17
 		if is_jumping == false:
 			animatedSprite.play("Run")
 		
@@ -87,11 +98,10 @@ func move_state(delta):
 	
 	#CHECKING IF PLAYER IS ATTACKING
 	if Input.is_action_just_pressed("ui_mouseL") and is_on_floor():
+		swordCollision.disabled = false
+		timer.start()
 		state = ATTACK
 	
-	#DISABLING THE COLLISION SHAPE WHEN "S" IS PRESSED - TESTING FOR NOW - NOT WORKING 
-	#if Input.is_action_pressed("ui_down"):
-		#collisionShape.disabled = true
 
 #JUMPING - STATE
 func jump_state(delta):
@@ -102,6 +112,7 @@ func jump_state(delta):
 	
 #ATTACKING - STATE
 func attack_state(delta):
+	velocity = Vector2.ZERO
 	animatedSprite.play("Attack")
 
 
@@ -117,3 +128,16 @@ func _on_AnimatedSprite_animation_finished():
 	is_jumping = false
 	state = MOVE
 	
+
+
+func _on_Hurtbox_area_entered(area):
+	if hurtbox.invencible == false:
+		stats.health -= area.damage
+		hurtbox.startInvencibility(0.5)
+		#hurtbox.createHitEffect()
+		#var playerHurtSound = PlayerHurtSound.instance()
+		#get_tree().current_scene.add_child(playerHurtSound)
+		
+func disbleSwordCollision():
+	if timer.time_left == 0:
+		swordCollision.disabled = true

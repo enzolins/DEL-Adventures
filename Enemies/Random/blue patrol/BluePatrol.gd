@@ -11,6 +11,8 @@ var state = WANDER
 
 onready var animatedSprite = $AnimatedSprite
 onready var wanderController = $WanderController
+onready var stats = $Stats
+onready var hurtbox = $HurtBox
 
 enum{
 	IDLE,
@@ -50,3 +52,16 @@ func pickRandomState(stateList):
 func checkNewState():
 	state = pickRandomState([IDLE, WANDER])
 	wanderController.startWanderTimer(rand_range(1,3))
+
+
+func _on_Hurtbox_area_entered(area):
+	stats.health -= area.damage
+	knockback = area.knockback_vector * KNOCKBACK_SPEED
+
+
+func _on_Stats_noHealth():
+	queue_free()
+	#PlayerStats.setGold(generateGold.generateGold())
+	#var enemyDeathEffect = EnemyDeathEffect.instance()
+	#get_parent().add_child(enemyDeathEffect)
+	#enemyDeathEffect.global_position = global_position 
