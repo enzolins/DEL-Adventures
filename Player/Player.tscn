@@ -1,10 +1,11 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Player/Adventurer 2.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Mechanics/Hitbox and Hurbox/Hitbox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Mechanics/Hitbox and Hurbox/Hurtbox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Mechanics/Sword Hitbox/SwordHitbox.gd" type="Script" id=5]
+[ext_resource path="res://Effects/SFx/Swipe.wav" type="AudioStream" id=6]
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 1 )
@@ -121,7 +122,7 @@ animations = [ {
 "frames": [ SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
 "loop": false,
 "name": "Attack",
-"speed": 9.0
+"speed": 15.0
 }, {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
@@ -180,6 +181,10 @@ shape = SubResource( 29 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="SwipeSword" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -10.0
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

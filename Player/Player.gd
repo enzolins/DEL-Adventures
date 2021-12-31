@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+const PlayerHurtSound = preload("res://Effects/SFx/PlayerHurtSound.tscn")
+
 #CONSTANTS
 export var MAX_SPEED = 140
 export var ACCELERATION = 650
@@ -27,6 +29,7 @@ onready var swordHitbox = $HitboxPivot/SwordHitbox
 onready var hurtbox = $Hurtbox
 onready var swordCollision = $HitboxPivot/SwordHitbox/CollisionShape2D
 onready var timer = $Timer
+onready var swipeSword = $SwipeSword
 
 #STATE MACHINE
 enum{
@@ -100,6 +103,7 @@ func move_state(delta):
 	if Input.is_action_just_pressed("ui_mouseL") and is_on_floor():
 		swordCollision.disabled = false
 		timer.start()
+		swipeSword.play(0.0)
 		state = ATTACK
 	
 
@@ -134,9 +138,9 @@ func _on_Hurtbox_area_entered(area):
 	if hurtbox.invencible == false:
 		stats.health -= area.damage
 		hurtbox.startInvencibility(0.5)
-		#hurtbox.createHitEffect()
-		#var playerHurtSound = PlayerHurtSound.instance()
-		#get_tree().current_scene.add_child(playerHurtSound)
+		hurtbox.createHitEffect()
+		var playerHurtSound = PlayerHurtSound.instance()
+		get_tree().current_scene.add_child(playerHurtSound)
 		
 func disbleSwordCollision():
 	if timer.time_left == 0:

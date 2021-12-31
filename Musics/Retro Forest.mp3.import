@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Retro Forest.mp3-1248a63b7fc473ebc28f05b572acb97f.mp3str"
+
+[deps]
+
+source_file="res://Musics/Retro Forest.mp3"
+dest_files=[ "res://.import/Retro Forest.mp3-1248a63b7fc473ebc28f05b572acb97f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

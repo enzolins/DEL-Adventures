@@ -1,6 +1,6 @@
 extends Area2D
 
-#const HitEffect = preload("res://Effects/HitEffect.tscn")
+const HitEffect = preload("res://Effects/VFx/HitEffect.tscn")
 
 var invencible = false setget setInvencible
 
@@ -10,11 +10,11 @@ signal invencibilityEnded
 onready var timer = $Timer
 onready var collisionShape = $CollisionShape2D
 
-#func createHitEffect():
-	#var effect = HitEffect.instance()
-	#var main = get_tree().current_scene
-	#main.add_child(effect)
-	#effect.global_position = global_position
+func createHitEffect():
+	var effect = HitEffect.instance()
+	var main = get_tree().current_scene
+	main.add_child(effect)
+	effect.global_position = global_position
 
 func setInvencible(value):
 	invencible = value
