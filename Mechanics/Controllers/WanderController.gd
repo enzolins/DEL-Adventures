@@ -21,3 +21,6 @@ func _on_Timer_timeout():
 
 func _ready():
 	updateTargetPosition()
+	
+func setNewStartPosition(newPosition):
+	startPosition = newPosition

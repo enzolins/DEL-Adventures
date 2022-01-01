@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tilesets/GrassTileMap.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Environment/tree_128px.png" type="Texture" id=7]
 [ext_resource path="res://Environment/EnvironmentTileMap.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Enemies/Random/blue patrol/BluePatrol.tscn" type="PackedScene" id=9]
+[ext_resource path="res://UI/Gold/GoldUI.tscn" type="PackedScene" id=10]
 
 [node name="Level1" type="Node2D"]
 
@@ -40,6 +41,9 @@ jump_height = 70.0
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../MainCamera")
 
+[node name="BluePatrol" parent="." instance=ExtResource( 9 )]
+position = Vector2( 381, 136 )
+
 [node name="MainCamera" parent="." instance=ExtResource( 3 )]
 position = Vector2( 56, 184 )
 
@@ -63,8 +67,12 @@ margin_right = 68.0
 margin_bottom = 20.0
 rect_scale = Vector2( 1.2, 1.2 )
 
-[node name="BluePatrol" parent="." instance=ExtResource( 9 )]
-position = Vector2( 381, 136 )
+[node name="GoldUI" parent="UI" instance=ExtResource( 10 )]
+margin_left = 16.0
+margin_top = 37.0
+margin_right = 16.0
+margin_bottom = 37.0
+rect_scale = Vector2( 0.3, 0.3 )
 
 [editable path="ParallaxBackground"]
 [editable path="MainCamera"]
