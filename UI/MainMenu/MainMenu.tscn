@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Fonts/DogicaBold.tres" type="DynamicFont" id=1]
+[ext_resource path="res://UI/MainMenu/Main Menu BG - Night.webp" type="Texture" id=2]
+[ext_resource path="res://Fonts/DogicaMenu.tres" type="DynamicFont" id=3]
+[ext_resource path="res://UI/MainMenu/MainMenu.gd" type="Script" id=4]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource( 4 )
+levelName = "mainMenu"
+
+[node name="Control" type="Control" parent="."]
+margin_right = 426.0
+margin_bottom = 240.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="TextureRect" parent="Control"]
+margin_right = 426.0
+margin_bottom = 240.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DELAdventures" type="Label" parent="Control"]
+margin_left = 56.0
+margin_top = 40.0
+margin_right = 280.0
+margin_bottom = 54.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_colors/font_color = Color( 0.262745, 0.262745, 0.866667, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "DEL ADVENTURES"
+
+[node name="Iniciar" type="Button" parent="Control"]
+modulate = Color( 0, 0.25098, 1, 1 )
+margin_left = 184.0
+margin_top = 128.0
+margin_right = 278.0
+margin_bottom = 148.0
+rect_scale = Vector2( 0.7, 0.7 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "INICIAR"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sair" type="Button" parent="Control"]
+modulate = Color( 0, 0.25098, 1, 1 )
+margin_left = 184.0
+margin_top = 176.0
+margin_right = 278.0
+margin_bottom = 196.0
+rect_scale = Vector2( 0.7, 0.7 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "SAIR"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Control/Iniciar" to="." method="_on_Iniciar_pressed"]
+[connection signal="pressed" from="Control/Sair" to="." method="_on_Sair_pressed"]

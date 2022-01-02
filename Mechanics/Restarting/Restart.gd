@@ -5,4 +5,5 @@ func _process(delta):
 		get_tree().change_scene("res://Levels/Level1/Level1.tscn")
 		PlayerStats.setHealth(4)
 		PlayerStats.setMaxHealth(4)
-		#queue_free()
+		PlayerStats.restartGold(0)
+		queue_free()
