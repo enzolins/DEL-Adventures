@@ -4,7 +4,7 @@ export(int) var max_health = 1 setget setMaxHealth
 var health = max_health setget setHealth
 export(int) var limitHealth = 7
 
-#export(int) var gold = 0 setget setGold
+export(int) var gold = 0 setget setGold
 
 signal noHealth
 signal healthChanged(value)
@@ -25,13 +25,13 @@ func setMaxHealth(value):
 	else:
 		pass
 		
-#func setGold(value):
-#	gold += value
-#	emit_signal("goldChanged",gold)
-	
-#func restartGold(value):
-#	gold = value
-#	emit_signal("goldChanged",gold)
+func setGold(value):
+	gold += value
+	emit_signal("goldChanged",gold)
+
+func restartGold(value):
+	gold = value
+	emit_signal("goldChanged",gold)
 	
 func _ready():
 	self.health = max_health

@@ -19,6 +19,7 @@ onready var wanderController = $WanderController
 onready var stats = $Stats
 onready var hurtbox = $Hurtbox
 onready var playerDetectionZone = $PlayerDetectionZone
+onready var goldGenerator = $GoldGenerator
 
 
 #STATE MACHINE - STATES
@@ -97,7 +98,7 @@ func _on_Hurtbox_area_entered(area):
 
 func _on_Stats_noHealth():
 	queue_free()
-	#PlayerStats.setGold(generateGold.generateGold())
+	PlayerStats.setGold(goldGenerator.generateGold())
 	var enemyDeathEffect = EnemyDeathEffect.instance()
 	get_parent().add_child(enemyDeathEffect)
 	enemyDeathEffect.global_position = global_position 

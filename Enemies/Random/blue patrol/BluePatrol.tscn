@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Enemies/Random/blue patrol/azul3.png" type="Texture" id=1]
 [ext_resource path="res://Enemies/Random/blue patrol/azul2.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Mechanics/Hitbox and Hurbox/Hurtbox.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Mechanics/Hitbox and Hurbox/Hitbox.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Mechanics/Player Detection Zone/PlayerDetectionZone.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Mechanics/Gold Generation/GoldGenerator.tscn" type="PackedScene" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -76,6 +77,10 @@ shape = SubResource( 4 )
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
 modulate = Color( 0.14902, 0, 1, 1 )
 shape = SubResource( 5 )
+
+[node name="GoldGenerator" parent="." instance=ExtResource( 10 )]
+MAX = 2
+MIN = 1
 
 [connection signal="noHealth" from="Stats" to="." method="_on_Stats_noHealth"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
