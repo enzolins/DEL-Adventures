@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Fonts/DogicaBold.tres" type="DynamicFont" id=1]
 [ext_resource path="res://UI/MainMenu/Main Menu BG - Night.webp" type="Texture" id=2]
 [ext_resource path="res://Fonts/DogicaMenu.tres" type="DynamicFont" id=3]
 [ext_resource path="res://UI/MainMenu/MainMenu.gd" type="Script" id=4]
+[ext_resource path="res://Musics/Music.mp3" type="AudioStream" id=5]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource( 4 )
@@ -65,6 +66,11 @@ text = "SAIR"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="BGMMainMenu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
+autoplay = true
 
 [connection signal="pressed" from="Control/Iniciar" to="." method="_on_Iniciar_pressed"]
 [connection signal="pressed" from="Control/Sair" to="." method="_on_Sair_pressed"]

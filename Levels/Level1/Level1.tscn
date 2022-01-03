@@ -40,6 +40,8 @@ position = Vector2( 248, 136 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 56, 184 )
 jump_height = 70.0
+jump_time_to_peak = 0.5
+jump_time_to_descent = 0.4
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../MainCamera")

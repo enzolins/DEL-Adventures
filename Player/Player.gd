@@ -12,7 +12,7 @@ export var jump_height : float
 export var jump_time_to_peak : float
 export var jump_time_to_descent : float
 
-onready var jump_velocity : float = (2.0 * jump_height / jump_time_to_peak) * -1
+onready var jump_velocity : float = ((2.0 * jump_height) / jump_time_to_peak) * -1
 onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1
 onready var fall_gravity :float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1
 
@@ -120,7 +120,7 @@ func attack_state(delta):
 	animatedSprite.play("Attack")
 
 
-func get_gravity():
+func get_gravity() -> float:
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
 
 #MOVING THE CHARACTER - FUNCTION
