@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/vermelho3.png-88d665bdb61cacf4fc5d1cc53d2ccf8b.stex"
+path="res://.import/vermelho3.png-b4755cda07a7686b079df7609c9eef7c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemies/Random/red patrol/vermelho3.png"
-dest_files=[ "res://.import/vermelho3.png-88d665bdb61cacf4fc5d1cc53d2ccf8b.stex" ]
+source_file="res://Enemies/Random/Red Patrol/vermelho3.png"
+dest_files=[ "res://.import/vermelho3.png-b4755cda07a7686b079df7609c9eef7c.stex" ]
 
 [params]
 

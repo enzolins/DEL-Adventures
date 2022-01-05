@@ -16,9 +16,14 @@ func setMaxHearts(value):
 	self.hearts = min(hearts, max_hearts)
 	if heartEmpty != null:
 		heartEmpty.rect_size.x = max_hearts * 15
+
+func noHearts():
+	heartFull.visible = false
+
 	
 func _ready():
 	self.max_hearts = PlayerStats.max_health
 	self.hearts = PlayerStats.health
 	PlayerStats.connect("healthChanged", self, "setHearts")
 	PlayerStats.connect("maxHealthChanged", self, "setMaxHearts")
+	PlayerStats.connect("noHealth",self,"noHearts")

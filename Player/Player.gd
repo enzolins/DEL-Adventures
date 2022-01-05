@@ -77,10 +77,10 @@ func move_state(delta):
 		#CHECK IF IT NEEDS FLIPPING
 		if direction.x > 0:
 			animatedSprite.flip_h = false
-			swordCollision.position.x = 17
+			swordCollision.position.x = 14
 		if direction.x < 0:
 			animatedSprite.flip_h = true
-			swordCollision.position.x = -17
+			swordCollision.position.x = -14
 		if is_jumping == false:
 			animatedSprite.play("Run")
 		

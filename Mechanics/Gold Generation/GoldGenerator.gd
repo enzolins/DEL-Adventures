@@ -3,6 +3,7 @@ extends Node
 export(int) var MAX = 0
 export(int) var MIN = 0
 
+
 var RNG = RandomNumberGenerator.new()
 
 
@@ -16,4 +17,3 @@ func generateGold():
 	else:
 		return 0
 		
-

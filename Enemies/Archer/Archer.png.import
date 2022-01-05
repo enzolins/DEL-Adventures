@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/azul1.png-e553861935e876d24b416dd0d25cd04f.stex"
+path="res://.import/Archer.png-eb329570b2622bd0101bffbfc6e50599.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemies/Random/Blue Patrol/azul1.png"
-dest_files=[ "res://.import/azul1.png-e553861935e876d24b416dd0d25cd04f.stex" ]
+source_file="res://Enemies/Archer/Archer.png"
+dest_files=[ "res://.import/Archer.png-eb329570b2622bd0101bffbfc6e50599.stex" ]
 
 [params]
 

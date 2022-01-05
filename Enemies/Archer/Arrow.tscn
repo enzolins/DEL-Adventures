@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Mechanics/Hitbox and Hurbox/Hitbox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Enemies/Archer/Arrow.gd" type="Script" id=2]
+[ext_resource path="res://Enemies/Archer/Arrow.png" type="Texture" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 3.0
+height = 6.0
+
+[node name="Arrow" groups=["Projectile"] instance=ExtResource( 1 )]
+collision_layer = 512
+collision_mask = 5
+script = ExtResource( 2 )
+SPEED = 200
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="2"]
+
+[connection signal="area_entered" from="." to="." method="_on_Arrow_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_Arrow_body_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/azul3.png-7fc4376fe0b8066d3e03e86db38e8be5.stex"
+path="res://.import/azul3.png-391f69dd7029c68f3cfc92da2b843909.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemies/Random/blue patrol/azul3.png"
-dest_files=[ "res://.import/azul3.png-7fc4376fe0b8066d3e03e86db38e8be5.stex" ]
+source_file="res://Enemies/Random/Blue Patrol/azul3.png"
+dest_files=[ "res://.import/azul3.png-391f69dd7029c68f3cfc92da2b843909.stex" ]
 
 [params]
 
