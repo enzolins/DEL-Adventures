@@ -6,6 +6,7 @@ signal levelChanged(levelName)
 
 export(String) var levelName = "level"
 
+
 func addRestart():
 	var restart= Restart.instance()
 	get_parent().add_child(restart)
