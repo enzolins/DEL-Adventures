@@ -12,6 +12,7 @@ motion_mirroring = Vector2( 496, 272 )
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Back"]
+self_modulate = Color( 0.901961, 0.901961, 0.901961, 1 )
 position = Vector2( 248, 136 )
 texture = ExtResource( 2 )
 
@@ -21,5 +22,6 @@ script = ExtResource( 3 )
 CLOUD_SPEED = -7
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer"]
+self_modulate = Color( 0.901961, 0.901961, 0.901961, 1 )
 position = Vector2( 248, 104 )
 texture = ExtResource( 1 )

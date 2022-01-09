@@ -22,6 +22,16 @@ onready var playerDetectionZone = $PlayerDetectionZone
 onready var goldGenerator = $GoldGenerator
 
 
+#GRAVITY - JUMP
+export var jump_height : float
+export var jump_time_to_peak : float
+export var jump_time_to_descent : float
+
+onready var jump_velocity : float = ((2.0 * jump_height) / jump_time_to_peak) * -1
+onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1
+onready var fall_gravity :float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1
+
+
 #STATE MACHINE - STATES
 enum{
 	IDLE,
@@ -57,7 +67,8 @@ func _physics_process(delta):
 				checkNewState()
 		CHASE:
 			chasePlayer(delta)
-	velocity = move_and_slide(velocity)
+	velocity = move_and_slide(velocity,Vector2.UP)
+	jump(delta)
 
 
 
@@ -102,3 +113,8 @@ func _on_Stats_noHealth():
 	var enemyDeathEffect = EnemyDeathEffect.instance()
 	get_parent().add_child(enemyDeathEffect)
 	enemyDeathEffect.global_position = global_position 
+	
+func jump(_delta):
+	if state == WANDER or state == CHASE:
+		if is_on_floor() and is_on_wall():
+			velocity.y = jump_velocity

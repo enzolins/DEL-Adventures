@@ -72,6 +72,7 @@ func move_state(delta):
 		is_jumping = false
 	
 	if input_vector != Vector2.ZERO:
+		Global.playerPos = input_vector
 		direction = input_vector
 		swordHitbox.knockback_vector = input_vector
 		#CHECK IF IT NEEDS FLIPPING
@@ -126,6 +127,7 @@ func get_gravity() -> float:
 #MOVING THE CHARACTER - FUNCTION
 func move():
 	velocity = move_and_slide(velocity,Vector2.UP)
+	Global.walkDirection = direction
 
 
 func _on_AnimatedSprite_animation_finished():
@@ -145,3 +147,7 @@ func _on_Hurtbox_area_entered(area):
 func disbleSwordCollision():
 	if timer.time_left == 0:
 		swordCollision.disabled = true
+		
+func flipPlayer():
+	animatedSprite.flip_h = true
+	swordCollision.position.x = -14
