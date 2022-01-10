@@ -174,8 +174,6 @@ modulate = Color( 0.243137, 1, 0, 1 )
 position = Vector2( 0, 3 )
 shape = SubResource( 29 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true

@@ -1,0 +1,101 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://UI/Gold/Gold Sprite Sheet.png" type="Texture" id=1]
+[ext_resource path="res://Environment/Chests/Coin/Coin.gd" type="Script" id=2]
+[ext_resource path="res://Mechanics/Player Detection Zone/PlayerDetectionZone.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Mechanics/Gold Generation/GoldGenerator.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 5.0
+
+[sub_resource type="Animation" id=3]
+resource_name = "Pulse"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.0824742, 0.0824742 ), Vector2( 0.103093, 0.103093 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:shape:radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 4.0, 5.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0824742, 0.0824742 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:shape:radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 4.0 ]
+}
+
+[node name="Coin" type="KinematicBody2D"]
+collision_layer = 0
+script = ExtResource( 2 )
+jump_height = 55.0
+jump_time_to_peak = 0.5
+jump_time_to_descent = 0.4
+range_X = 30
+gravity = 900
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.0824742, 0.0824742 )
+texture = ExtResource( 1 )
+hframes = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="PlayerDetectionZone" parent="." instance=ExtResource( 3 )]
+
+[node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
+modulate = Color( 0, 0.133333, 1, 1 )
+shape = SubResource( 2 )
+
+[node name="GoldGenerator" parent="." instance=ExtResource( 4 )]
+MAX = 8
+MIN = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Pulse = SubResource( 3 )
+anims/RESET = SubResource( 4 )
+
+[editable path="PlayerDetectionZone"]

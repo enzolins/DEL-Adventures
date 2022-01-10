@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Tilesets/atlas.png" type="Texture" id=1]
 [ext_resource path="res://Mechanics/Player Detection Zone/PlayerDetectionZone.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Mechanics/Gold Generation/GoldGenerator.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Environment/Chests/Chest.gd" type="Script" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -42,12 +41,7 @@ animation = "Closed"
 [node name="PlayerDetectionZone" parent="." instance=ExtResource( 2 )]
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
-visible = false
 shape = SubResource( 5 )
-
-[node name="GoldGenerator" parent="." instance=ExtResource( 3 )]
-MAX = 8
-MIN = 4
 
 [node name="Collision" type="StaticBody2D" parent="."]
 
