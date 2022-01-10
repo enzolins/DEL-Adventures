@@ -10,3 +10,9 @@ func _ready():
 	limit_right = bottomRight.position.x
 	zoom.x = 0.95
 	zoom.y = 0.95
+
+func changeLimits():
+	limit_top = topLeft.position.y
+	limit_left = topLeft.position.x
+	limit_bottom = bottomRight.position.y
+	limit_right = bottomRight.position.x

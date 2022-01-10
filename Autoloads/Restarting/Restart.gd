@@ -7,4 +7,5 @@ func _process(delta):
 		PlayerStats.setMaxHealth(4)
 		PlayerStats.restartGold(0)
 		MusicController.playMusic()
+		Global.fromLevel = null
 		queue_free()

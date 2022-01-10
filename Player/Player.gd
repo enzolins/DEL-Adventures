@@ -96,7 +96,7 @@ func move_state(delta):
 	move()
 	
 	#CHECKING IF PLAYER IS JUMPING
-	if Input.is_action_just_pressed("ui_select") and is_on_floor():
+	if Input.is_action_just_pressed("ui_select") and is_on_floor(): #(is_on_floor() or is_on_wall()): WALL JUMP
 		state = JUMP
 		velocity.y = jump_velocity
 	

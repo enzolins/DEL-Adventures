@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/Hearts/HealthUI.gd" type="Script" id=1]
+[ext_resource path="res://UI/Gold/GoldUI.gd" type="Script" id=2]
+[ext_resource path="res://UI/Gold/GoldUI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/Hearts/HealthUI.tscn" type="PackedScene" id=4]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="HealthUI" type="Control" parent="." instance=ExtResource( 4 )]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 68.0
+margin_bottom = 20.0
+rect_scale = Vector2( 1.2, 1.2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GoldUI" type="Control" parent="." instance=ExtResource( 3 )]
+margin_left = 16.0
+margin_top = 37.0
+margin_right = 16.0
+margin_bottom = 37.0
+rect_scale = Vector2( 0.3, 0.3 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
