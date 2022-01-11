@@ -8,9 +8,9 @@ export var ACCELERATION = 650
 export var FRICTION = 8000
 
 #GRAVITY - JUMP
-export var jump_height : float
-export var jump_time_to_peak : float
-export var jump_time_to_descent : float
+export var jump_height : float = 70
+export var jump_time_to_peak : float = 0.5
+export var jump_time_to_descent : float = 0.4
 
 onready var jump_velocity : float = ((2.0 * jump_height) / jump_time_to_peak) * -1
 onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1
@@ -21,6 +21,10 @@ var velocity = Vector2.ZERO
 var direction
 var is_jumping = false
 var stats = PlayerStats
+#IN WATER FACTORS
+var x_factor = 1
+var y_factor = 1
+var is_in_water = false
 
 #NODE VARIABLES
 onready var animatedSprite = $AnimatedSprite
@@ -92,7 +96,8 @@ func move_state(delta):
 			velocity = velocity.move_toward(Vector2(0,velocity.y), FRICTION * delta)
 		else:
 			velocity = velocity.move_toward(Vector2(0,velocity.y), FRICTION * delta)
-		
+	
+	change_player_speed(x_factor,y_factor)
 	move()
 	
 	#CHECKING IF PLAYER IS JUMPING
@@ -106,7 +111,6 @@ func move_state(delta):
 		timer.start()
 		swipeSword.play(0.0)
 		state = ATTACK
-	
 
 #JUMPING - STATE
 func jump_state(delta):
@@ -151,3 +155,21 @@ func disbleSwordCollision():
 func flipPlayer():
 	animatedSprite.flip_h = true
 	swordCollision.position.x = -14
+	
+func change_player_speed(xfactor,yfactor):
+	velocity.x = velocity.x * xfactor
+	velocity.y = velocity.y * yfactor
+	if is_on_floor():
+		y_factor = 1
+
+
+func _on_WaterDetector_area_entered(area):
+	x_factor = 0.5
+	y_factor = 0.5
+	animatedSprite.speed_scale = 0.6
+
+
+func _on_WaterDetector_area_exited(area):
+	x_factor = 1
+	y_factor = 1
+	animatedSprite.speed_scale = 1
