@@ -25,6 +25,8 @@ var stats = PlayerStats
 var x_factor = 1
 var y_factor = 1
 var is_in_water = false
+#ATTACK ALTERNATION
+var attack = 1
 
 #NODE VARIABLES
 onready var animatedSprite = $AnimatedSprite
@@ -122,7 +124,22 @@ func jump_state(delta):
 #ATTACKING - STATE
 func attack_state(delta):
 	velocity = Vector2.ZERO
-	animatedSprite.play("Attack")
+	match attack:
+		1:
+			animatedSprite.play("Attack1")
+			if animation_finished(animatedSprite, "Attack1"):
+				attack = 2
+				state = MOVE
+		2: 
+			animatedSprite.play("Attack2")
+			if animation_finished(animatedSprite, "Attack2"):
+				attack = 3
+				state = MOVE
+		3:
+			animatedSprite.play("Attack3")
+			if animation_finished(animatedSprite, "Attack3"):
+				attack = 1
+				state = MOVE
 
 
 func get_gravity() -> float:
@@ -132,7 +149,6 @@ func get_gravity() -> float:
 func move():
 	velocity = move_and_slide(velocity,Vector2.UP)
 	Global.walkDirection = direction
-
 
 func _on_AnimatedSprite_animation_finished():
 	is_jumping = false
@@ -173,3 +189,11 @@ func _on_WaterDetector_area_exited(area):
 	x_factor = 1
 	y_factor = 1
 	animatedSprite.speed_scale = 1
+	
+func animation_finished(animation: AnimatedSprite, animation_name: String) -> bool: 
+	var finished
+	if animation.animation == animation_name and animation.frame == animation.frames.get_frame_count(animation_name) - 1:
+		finished = true
+	else:
+		false
+	return finished

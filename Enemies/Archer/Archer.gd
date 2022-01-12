@@ -25,6 +25,14 @@ onready var goldGenerator = $GoldGenerator
 onready var timer = $AttackRate
 onready var canWalk = $CanWalk
 
+#GRAVITY - JUMP
+export var jump_height : float
+export var jump_time_to_peak : float
+export var jump_time_to_descent : float
+
+onready var jump_velocity : float = ((2.0 * jump_height) / jump_time_to_peak) * -1
+onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1
+onready var fall_gravity :float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1
 
 #STATE MACHINE - STATES
 enum{
@@ -65,7 +73,8 @@ func _physics_process(delta):
 				velocity = Vector2.ZERO
 				animatedSprite.play("Shoot")
 				shootArrow()
-	velocity = move_and_slide(velocity)
+	velocity = move_and_slide(velocity, Vector2.UP)
+	jump(delta)
 
 
 
@@ -125,3 +134,8 @@ func shootArrow():
 		timer.start()
 	else:
 		state = IDLE
+		
+func jump(_delta):
+	if state == WANDER or state == SHOOT:
+		if is_on_floor() and is_on_wall():
+			velocity.y = jump_velocity
