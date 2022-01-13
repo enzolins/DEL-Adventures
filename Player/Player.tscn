@@ -63,30 +63,6 @@ region = Rect2( 50, 111, 50, 37 )
 atlas = ExtResource( 1 )
 region = Rect2( 100, 111, 50, 37 )
 
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 1 )
-region = Rect2( 50, 37, 50, 37 )
-
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 1 )
-region = Rect2( 100, 37, 50, 37 )
-
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 1 )
-region = Rect2( 150, 37, 50, 37 )
-
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 1 )
-region = Rect2( 200, 37, 50, 37 )
-
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 1 )
-region = Rect2( 250, 37, 50, 37 )
-
-[sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 1 )
-region = Rect2( 300, 37, 50, 37 )
-
 [sub_resource type="AtlasTexture" id=33]
 atlas = ExtResource( 1 )
 region = Rect2( 300, 222, 50, 37 )
@@ -131,6 +107,30 @@ region = Rect2( 200, 222, 50, 37 )
 atlas = ExtResource( 1 )
 region = Rect2( 250, 222, 50, 37 )
 
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 50, 37, 50, 37 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 100, 37, 50, 37 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 1 )
+region = Rect2( 150, 37, 50, 37 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 1 )
+region = Rect2( 200, 37, 50, 37 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 1 )
+region = Rect2( 250, 37, 50, 37 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 1 )
+region = Rect2( 300, 37, 50, 37 )
+
 [sub_resource type="AtlasTexture" id=44]
 atlas = ExtResource( 1 )
 region = Rect2( 200, 259, 50, 37 )
@@ -167,11 +167,6 @@ animations = [ {
 "name": "Jump",
 "speed": 13.0
 }, {
-"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
-"loop": true,
-"name": "Run",
-"speed": 9.0
-}, {
 "frames": [ SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ) ],
 "loop": false,
 "name": "Attack2",
@@ -181,6 +176,11 @@ animations = [ {
 "loop": false,
 "name": "Attack1",
 "speed": 15.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "Run",
+"speed": 9.0
 }, {
 "frames": [ SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ) ],
 "loop": false,
@@ -242,6 +242,7 @@ one_shot = true
 [node name="SwipeSword" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 volume_db = -10.0
+bus = "SFX"
 
 [node name="WaterDetector" type="Area2D" parent="."]
 collision_layer = 0

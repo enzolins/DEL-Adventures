@@ -119,7 +119,7 @@ position = Vector2( 912, 152 )
 targetScene = "res://Levels/Level2/Level2.tscn"
 
 [node name="CollisionShape2D" parent="LevelTransition" index="0"]
-position = Vector2( 88, -32 )
+position = Vector2( 104, -32 )
 shape = SubResource( 1 )
 
 [editable path="LeafParticles"]

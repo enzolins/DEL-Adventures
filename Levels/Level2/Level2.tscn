@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Background/ParallaxBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tilesets/BasicTileset.tscn" type="PackedScene" id=2]
@@ -20,6 +20,9 @@ extents = Vector2( 41, 10 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 46.5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10, 72.75 )
 
 [node name="Level2" type="Node2D"]
 script = ExtResource( 5 )
@@ -112,6 +115,13 @@ shape = SubResource( 1 )
 
 [node name="Level1Pos" type="Position2D" parent="."]
 position = Vector2( 40, 72 )
+
+[node name="Limit" type="StaticBody2D" parent="."]
+position = Vector2( 1050, 264 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limit"]
+position = Vector2( 17, 10.75 )
+shape = SubResource( 3 )
 
 [connection signal="body_entered" from="CameraLimitsSwitcher" to="." method="_on_CameraLimitsSwitcher_body_entered"]
 

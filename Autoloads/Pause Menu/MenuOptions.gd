@@ -9,7 +9,7 @@ var menuStack = []
 
 onready var mainMenu = $MainMenu
 onready var optionsMenu = $OptionsMenu
-onready var controlsMenu = $ControlsMenu
+onready var controlsMenu = $Instructions
 onready var select = $Select
 onready var tween = $Tween
 
@@ -40,8 +40,8 @@ func getMenuFromMenuId(menuId: String) -> Control:
 			return mainMenu
 		"optionsMenu":
 			return optionsMenu
-#		"controlsMenu":
-#			return controlsMenu
+		"controlsMenu":
+			return controlsMenu
 		_:
 			return mainMenu
 
@@ -64,14 +64,14 @@ func _on_Sair_pressed():
 	get_tree().quit()
 
 
-#func _on_Controles_pressed():
-#	moveToNextMenu("controlsMenu")
-#	select.play(0.0)
-#
-#
-#func _on_VoltarControls_pressed():
-#	select.play(0.0)
-#	moveToPreviousMenu()
+func _on_Controles_pressed():
+	moveToNextMenu("controlsMenu")
+	select.play(0.0)
+
+
+func _on_VoltarControls_pressed():
+	select.play(0.0)
+	moveToPreviousMenu()
 
 
 func _on_FullScreen_pressed():

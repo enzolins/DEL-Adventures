@@ -10,17 +10,17 @@ func _ready():
 	menuOptions.visible = false
 
 func _input(event):
-	#if CanPause.getCanPause() == true:
-	if event.is_action_pressed("ui_cancel"):
-		pauseGame()
-		if isPaused == false:
-			isPaused = true
-			pause.play(0.0)
-		else:
-			isPaused = false
-			unpause.play(0.0)
-	#else:
-		#pass
+	if CanPause.getCanPause() == true:
+		if event.is_action_pressed("ui_cancel"):
+			pauseGame()
+			if isPaused == false:
+				isPaused = true
+				pause.play(0.0)
+			else:
+				isPaused = false
+				unpause.play(0.0)
+	else:
+		pass
 
 
 func _on_Continuar_pressed():

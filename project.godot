@@ -31,6 +31,7 @@ PlayerStats="*res://Player/PlayerStats.tscn"
 MusicController="*res://Autoloads/Music Controller/MusicController.tscn"
 Global="*res://Autoloads/Global/Global.tscn"
 PauseMenu="*res://Autoloads/Pause Menu/PauseMenu.tscn"
+CanPause="*res://Mechanics/Can Pause/CanPause.tscn"
 
 [display]
 

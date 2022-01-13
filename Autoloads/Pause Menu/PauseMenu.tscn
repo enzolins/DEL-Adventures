@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Fonts/dogica.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/DogicaMenu.tres" type="DynamicFont" id=2]
@@ -8,6 +8,10 @@
 [ext_resource path="res://Effects/SFx/Unpause.wav" type="AudioStream" id=6]
 [ext_resource path="res://Effects/SFx/Menu Select.wav" type="AudioStream" id=7]
 [ext_resource path="res://Fonts/DogicaButtons.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Autoloads/Pause Menu/OptionsMenu.gd" type="Script" id=9]
+[ext_resource path="res://Autoloads/Pause Menu/Grabber.png" type="Texture" id=10]
+[ext_resource path="res://Autoloads/Pause Menu/SlideBar.png" type="Texture" id=11]
+[ext_resource path="res://UI/Instructions/Instructions.tscn" type="PackedScene" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 outline_color = Color( 0, 0, 0, 1 )
@@ -24,7 +28,47 @@ outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFont" id=6]
+use_mipmaps = true
+extra_spacing_top = -1
+extra_spacing_char = -2
+font_data = ExtResource( 1 )
+
 [sub_resource type="DynamicFont" id=4]
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 107, 14 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+
+[sub_resource type="StyleBoxTexture" id=9]
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 107, 14 )
+
+[sub_resource type="StyleBoxTexture" id=11]
+
+[sub_resource type="StyleBoxTexture" id=12]
+
+[sub_resource type="StyleBoxTexture" id=13]
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 107, 14 )
+
+[sub_resource type="StyleBoxTexture" id=14]
+
+[sub_resource type="StyleBoxTexture" id=15]
+
+[sub_resource type="DynamicFont" id=16]
 outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 font_data = ExtResource( 1 )
@@ -35,7 +79,7 @@ layer = 2
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 0.0, 240.0, -29.0, 103.0, 117.0, 131.0, 145.0, 159.0, 173.0, 187.0, 201.0, 215.0, 229.0 ],
-"_edit_vertical_guides_": [ 0.0, 426.0, 213.0 ]
+"_edit_vertical_guides_": [ 0.0, 426.0, 213.0, 426.0, 852.0, 639.0, 457.0, 670.0, 1278.0, 1065.0 ]
 }
 
 [node name="MenuOptions" type="Control" parent="."]
@@ -64,13 +108,13 @@ __meta__ = {
 }
 
 [node name="Pause Menu" type="Label" parent="MenuOptions/MainMenu"]
-margin_left = 98.0
+margin_left = 65.0
 margin_top = 24.0
 margin_right = 213.0
 margin_bottom = 38.0
 rect_scale = Vector2( 2, 2 )
 custom_fonts/font = ExtResource( 2 )
-text = "PAUSE MENU"
+text = "MENU DE PAUSA"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -147,25 +191,31 @@ rect_scale = Vector2( 0.4, 0.4 )
 focus_mode = 0
 mouse_default_cursor_shape = 2
 custom_fonts/font = ExtResource( 8 )
-text = "Fullscreen"
+text = "Tela Cheia"
 
 [node name="OptionsMenu" type="Control" parent="MenuOptions"]
 margin_left = 426.0
 margin_right = 852.0
 margin_bottom = 240.0
+script = ExtResource( 9 )
 
-[node name="Teste" type="Label" parent="MenuOptions/OptionsMenu"]
-margin_left = 183.0
-margin_top = 40.0
-margin_right = 285.0
-margin_bottom = 54.0
-text = "OPTIONS MENU"
+[node name="OptionsMenu" type="Label" parent="MenuOptions/OptionsMenu"]
+margin_left = 127.0
+margin_top = 16.0
+margin_right = 213.0
+margin_bottom = 30.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 6 )
+text = "OPÇÕES"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Voltar" type="Button" parent="MenuOptions/OptionsMenu"]
 modulate = Color( 0, 0.368627, 1, 1 )
-margin_left = 183.0
+margin_left = 158.0
 margin_top = 201.0
-margin_right = 339.0
+margin_right = 314.0
 margin_bottom = 221.0
 rect_scale = Vector2( 0.7, 0.7 )
 mouse_default_cursor_shape = 2
@@ -176,20 +226,131 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="VolumeGeral" type="Label" parent="MenuOptions/OptionsMenu"]
+margin_left = 31.0
+margin_top = 103.0
+margin_right = 191.0
+margin_bottom = 117.0
+custom_fonts/font = ExtResource( 8 )
+text = "Volume Geral"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VolumeBGM" type="Label" parent="MenuOptions/OptionsMenu"]
+margin_left = 31.0
+margin_top = 131.0
+margin_right = 191.0
+margin_bottom = 145.0
+custom_fonts/font = ExtResource( 8 )
+text = "Volume BGM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VolumeSFX" type="Label" parent="MenuOptions/OptionsMenu"]
+margin_left = 31.0
+margin_top = 159.0
+margin_right = 191.0
+margin_bottom = 173.0
+custom_fonts/font = SubResource( 5 )
+text = "Volume SFX"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GeralSlider" type="HSlider" parent="MenuOptions/OptionsMenu"]
+margin_left = 244.0
+margin_top = 103.0
+margin_right = 418.0
+margin_bottom = 119.0
+custom_icons/grabber_disabled = ExtResource( 10 )
+custom_icons/grabber_highlight = ExtResource( 10 )
+custom_icons/grabber = ExtResource( 10 )
+custom_styles/slider = SubResource( 7 )
+custom_styles/grabber_area_highlight = SubResource( 8 )
+custom_styles/grabber_area = SubResource( 9 )
+min_value = -50.0
+max_value = 15.0
+rounded = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BGMSlider" type="HSlider" parent="MenuOptions/OptionsMenu"]
+margin_left = 244.0
+margin_top = 131.0
+margin_right = 418.0
+margin_bottom = 147.0
+custom_icons/grabber_disabled = ExtResource( 10 )
+custom_icons/grabber_highlight = ExtResource( 10 )
+custom_icons/grabber = ExtResource( 10 )
+custom_styles/slider = SubResource( 10 )
+custom_styles/grabber_area_highlight = SubResource( 11 )
+custom_styles/grabber_area = SubResource( 12 )
+min_value = -50.0
+max_value = 15.0
+rounded = true
+
+[node name="SFXSlider" type="HSlider" parent="MenuOptions/OptionsMenu"]
+margin_left = 244.0
+margin_top = 159.0
+margin_right = 418.0
+margin_bottom = 175.0
+custom_icons/grabber_disabled = ExtResource( 10 )
+custom_icons/grabber_highlight = ExtResource( 10 )
+custom_icons/grabber = ExtResource( 10 )
+custom_styles/slider = SubResource( 13 )
+custom_styles/grabber_area_highlight = SubResource( 14 )
+custom_styles/grabber_area = SubResource( 15 )
+min_value = -50.0
+max_value = 15.0
+rounded = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Select" type="AudioStreamPlayer" parent="MenuOptions"]
 stream = ExtResource( 7 )
 volume_db = -10.0
+bus = "SFX"
+
+[node name="Instructions" parent="MenuOptions" instance=ExtResource( 12 )]
+margin_left = 852.0
+margin_right = 852.0
+
+[node name="VoltarControls" type="Button" parent="MenuOptions/Instructions"]
+modulate = Color( 0, 0.368627, 1, 1 )
+margin_left = 158.0
+margin_top = 201.0
+margin_right = 314.0
+margin_bottom = 221.0
+rect_scale = Vector2( 0.7, 0.7 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 16 )
+text = "Voltar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Pause" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 volume_db = -10.0
+bus = "SFX"
 
 [node name="Unpause" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 volume_db = -10.0
+bus = "SFX"
 
 [connection signal="pressed" from="MenuOptions/MainMenu/Continuar" to="." method="_on_Continuar_pressed"]
 [connection signal="pressed" from="MenuOptions/MainMenu/Opcoes" to="MenuOptions" method="_on_Opcoes_pressed"]
+[connection signal="pressed" from="MenuOptions/MainMenu/Controles" to="MenuOptions" method="_on_Controles_pressed"]
 [connection signal="pressed" from="MenuOptions/MainMenu/Sair" to="MenuOptions" method="_on_Sair_pressed"]
 [connection signal="pressed" from="MenuOptions/MainMenu/FullScreen" to="MenuOptions" method="_on_FullScreen_pressed"]
 [connection signal="pressed" from="MenuOptions/OptionsMenu/Voltar" to="MenuOptions" method="_on_Voltar_pressed"]
+[connection signal="value_changed" from="MenuOptions/OptionsMenu/GeralSlider" to="MenuOptions/OptionsMenu" method="_on_GeralSlider_value_changed"]
+[connection signal="value_changed" from="MenuOptions/OptionsMenu/BGMSlider" to="MenuOptions/OptionsMenu" method="_on_BGMSlider_value_changed"]
+[connection signal="value_changed" from="MenuOptions/OptionsMenu/SFXSlider" to="MenuOptions/OptionsMenu" method="_on_SFXSlider_value_changed"]
+[connection signal="pressed" from="MenuOptions/Instructions/VoltarControls" to="MenuOptions" method="_on_VoltarControls_pressed"]
