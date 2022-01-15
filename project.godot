@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "RigidBody2D",
+"class": "Box",
+"language": "GDScript",
+"path": "res://Mechanics/Button and Box/Box.gd"
+}, {
 "base": "Path2D",
 "class": "SmoothPath",
 "language": "GDScript",
 "path": "res://Environment/Water/smooth_path_modified.gd"
 } ]
 _global_script_class_icons={
+"Box": "",
 "SmoothPath": ""
 }
 
@@ -131,6 +137,8 @@ ui_ctrl={
 2d_physics/layer_10="Projectile"
 2d_physics/layer_11="EnemyBoundaries"
 2d_physics/layer_12="Water"
+2d_physics/layer_13="Box"
+2d_physics/layer_14="ButtonInteraction"
 
 [physics]
 

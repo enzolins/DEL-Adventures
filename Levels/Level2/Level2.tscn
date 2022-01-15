@@ -58,6 +58,7 @@ texture = ExtResource( 14 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 25, 72 )
+inertia = 100
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../MainCamera")
@@ -87,6 +88,7 @@ tile_data = PoolIntArray( 1507337, 536870938, 0, 1507338, 536870938, 0, 1507339,
 
 [node name="MainCamera" parent="." instance=ExtResource( 6 )]
 position = Vector2( 25, 72 )
+scale = Vector2( 1, 1.00434 )
 zoom = Vector2( 0.95, 0.95 )
 
 [node name="TopLeft" parent="MainCamera/Limits" index="0"]

@@ -12,13 +12,16 @@ export var jump_height : float = 70
 export var jump_time_to_peak : float = 0.5
 export var jump_time_to_descent : float = 0.4
 
+#PUSHING
+export var inertia: float = 100.0
+
 onready var jump_velocity : float = ((2.0 * jump_height) / jump_time_to_peak) * -1
 onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1
 onready var fall_gravity :float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1
 
 #MECHANIC VARIABLES
 var velocity = Vector2.ZERO
-var direction
+var direction = Vector2.ZERO
 var is_jumping = false
 var stats = PlayerStats
 #IN WATER FACTORS
@@ -147,14 +150,13 @@ func get_gravity() -> float:
 
 #MOVING THE CHARACTER - FUNCTION
 func move():
-	velocity = move_and_slide(velocity,Vector2.UP)
+	velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
+	check_box_collision()
 	Global.walkDirection = direction
 
 func _on_AnimatedSprite_animation_finished():
 	is_jumping = false
 	state = MOVE
-	
-
 
 func _on_Hurtbox_area_entered(area):
 	if hurtbox.invencible == false:
@@ -197,3 +199,18 @@ func animation_finished(animation: AnimatedSprite, animation_name: String) -> bo
 	else:
 		false
 	return finished
+
+func _on_BoxDetector_area_entered(area):
+	x_factor = 0.5
+	animatedSprite.speed_scale = 0.6
+
+
+func _on_BoxDetector_area_exited(area):
+	x_factor = 1
+	animatedSprite.speed_scale = 1
+	
+func check_box_collision():
+	for index in get_slide_count():
+		var collision = get_slide_collision(index)
+		if collision.collider.is_in_group("Boxes"):
+			collision.collider.apply_central_impulse(-collision.normal * inertia)

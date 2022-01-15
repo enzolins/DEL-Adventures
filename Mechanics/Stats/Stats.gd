@@ -3,7 +3,6 @@ extends Node
 export(int) var max_health = 1 setget setMaxHealth
 var health = max_health setget setHealth
 export(int) var limitHealth = 7
-
 export(int) var gold = 0 setget setGold
 
 signal noHealth
