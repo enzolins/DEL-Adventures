@@ -95,6 +95,7 @@ position = Vector2( 904, 176 )
 
 [node name="MainCamera" parent="." instance=ExtResource( 3 )]
 position = Vector2( 56, 184 )
+scale = Vector2( 1, 1.00434 )
 zoom = Vector2( 0.95, 0.95 )
 
 [node name="TopLeft" parent="MainCamera/Limits" index="0"]

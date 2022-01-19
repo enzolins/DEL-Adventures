@@ -73,7 +73,7 @@ func _physics_process(delta):
 				velocity = Vector2.ZERO
 				animatedSprite.play("Shoot")
 				shootArrow()
-	velocity = move_and_slide(velocity, Vector2.UP)
+	velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
 	jump(delta)
 
 
@@ -96,7 +96,7 @@ func chasePlayer(delta):
 		var direction = (player.global_position - global_position).normalized()
 		direction.y = height
 		velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
-		wanderController.setNewStartPosition(player.global_position) #SETS THE NEW START POSITION AS THE LATEST PLAYER POSITION
+		#wanderController.setNewStartPosition(player.global_position) #SETS THE NEW START POSITION AS THE LATEST PLAYER POSITION
 	else:
 		state = IDLE
 	animatedSprite.play("Walk")
@@ -126,6 +126,7 @@ func shootArrow():
 	if player != null:
 		#var direction = (player.global_position - self.global_position).normalized()
 		var direction = player.global_position
+		direction.y += 5 #MAKES ARROWS GO STRAIGHT
 		var arrow = ARROW.instance()
 		get_tree().current_scene.add_child(arrow)
 		arrow.global_position = self.global_position

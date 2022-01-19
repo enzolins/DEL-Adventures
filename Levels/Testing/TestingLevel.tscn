@@ -16,7 +16,7 @@ tile_data = PoolIntArray( -65525, 1, 0, -65524, 1, 0, -65523, 1, 0, -65522, 1, 0
 position = Vector2( -96, 26 )
 
 [node name="Box" parent="." instance=ExtResource( 4 )]
-position = Vector2( -63, -15 )
+position = Vector2( -35, -40 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
@@ -44,4 +44,5 @@ position = Vector2( -151, 0 )
 [connection signal="pressed" from="Button" to="Portal" method="_on_Button_pressed"]
 [connection signal="unpressed" from="Button" to="Portal" method="_on_Button_unpressed"]
 
+[editable path="Box"]
 [editable path="MainCamera"]

@@ -42,7 +42,7 @@ collision_mask = 1025
 script = ExtResource( 9 )
 KNOCKBACK_SPEED = 70
 MAX_SPEED = 75
-jump_height = 70.0
+jump_height = 75.0
 jump_time_to_peak = 0.5
 jump_time_to_descent = 0.4
 

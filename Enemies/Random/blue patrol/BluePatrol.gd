@@ -88,7 +88,7 @@ func chasePlayer(delta):
 		var direction = (player.global_position - global_position).normalized()
 		direction.y = height
 		velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
-		wanderController.setNewStartPosition(player.global_position) #SETS THE NEW START POSITION AS THE LATEST PLAYER POSITION
+		#wanderController.setNewStartPosition(player.global_position) #SETS THE NEW START POSITION AS THE LATEST PLAYER POSITION
 	else:
 		state = IDLE
 	animatedSprite.play("Walk")
