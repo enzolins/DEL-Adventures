@@ -14,8 +14,8 @@ export var border_thickness = 1.1
 var springs = []
 var passes = 8
 var water_length = distance_between_springs * spring_number
-var target_height = global_position.y
-var bottom = target_height + depth
+var target_height
+var bottom
 
 onready var water_polygon = $WaterPolygon
 onready var water_border = $WaterBorder
@@ -23,6 +23,8 @@ onready var collisionShape = $WaterBodyArea/CollisionShape2D
 onready var water_body_area = $WaterBodyArea
 
 func _ready():
+	target_height = global_position.y
+	bottom = target_height + depth
 	water_border.width = border_thickness
 	for i in range(spring_number):
 		var x_position = distance_between_springs * i

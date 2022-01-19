@@ -13,6 +13,7 @@ func addRestart():
 	get_parent().add_child(restart)
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	camera.current = true
 	if Global.fromLevel != null:
 		get_node("Player").set_position(get_node(Global.fromLevel + "Pos").position)

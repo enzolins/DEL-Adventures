@@ -14,7 +14,6 @@ export var GRAVITY = 1000
 var velocity = Vector2.ZERO
 var knockback = Vector2.ZERO
 var state = WANDER
-var height = global_position.y
 
 onready var animatedSprite = $AnimatedSprite
 onready var wanderController = $WanderController
@@ -94,7 +93,6 @@ func chasePlayer(delta):
 	var player = playerDetectionZone.player
 	if player != null:
 		var direction = (player.global_position - global_position).normalized()
-		direction.y = height
 		velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
 		#wanderController.setNewStartPosition(player.global_position) #SETS THE NEW START POSITION AS THE LATEST PLAYER POSITION
 	else:

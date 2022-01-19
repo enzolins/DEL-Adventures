@@ -1,9 +1,11 @@
 extends Node2D
 
 onready var animated_sprite = $AnimatedSprite
+onready var level_transition = $LevelTransition
 
 func _ready():
 	animated_sprite.visible = false
+	level_transition.set_deferred("monitoring", false)
 	
 func open_portal():
 	animated_sprite.visible = true
@@ -11,9 +13,11 @@ func open_portal():
 
 func idle_portal():
 	animated_sprite.play("Idle")
+	level_transition.set_deferred("monitoring", true)
 
 func close_portal():
 	animated_sprite.play("Close")
+	level_transition.set_deferred("monitoring", false)
 
 func _on_Button_pressed():
 	open_portal()

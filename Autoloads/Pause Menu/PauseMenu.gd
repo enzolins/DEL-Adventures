@@ -16,9 +16,11 @@ func _input(event):
 			if isPaused == false:
 				isPaused = true
 				pause.play(0.0)
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			else:
 				isPaused = false
 				unpause.play(0.0)
+				Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	else:
 		pass
 
