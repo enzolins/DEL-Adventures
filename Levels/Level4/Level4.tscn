@@ -20,6 +20,7 @@ remote_path = NodePath("../../MainCamera")
 
 [node name="MainCamera" parent="." instance=ExtResource( 2 )]
 position = Vector2( 89, 114 )
+scale = Vector2( 1, 1 )
 
 [node name="BottomRight" parent="MainCamera/Limits" index="1"]
 position = Vector2( 503, 239 )

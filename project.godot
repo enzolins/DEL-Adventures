@@ -139,6 +139,7 @@ ui_ctrl={
 2d_physics/layer_12="Water"
 2d_physics/layer_13="Box"
 2d_physics/layer_14="ButtonInteraction"
+2d_physics/layer_15="Player'sHead"
 
 [physics]
 

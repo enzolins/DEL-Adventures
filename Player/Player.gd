@@ -118,14 +118,14 @@ func move_state(delta):
 		state = ATTACK
 
 #JUMPING - STATE
-func jump_state(delta):
+func jump_state(_delta):
 	animatedSprite.play("Jump")
 	is_jumping = true
 	velocity.y = jump_velocity
 	state = MOVE
 	
 #ATTACKING - STATE
-func attack_state(delta):
+func attack_state(_delta):
 	velocity = Vector2.ZERO
 	match attack:
 		1:
@@ -181,13 +181,13 @@ func change_player_speed(xfactor,yfactor):
 		y_factor = 1
 
 
-func _on_WaterDetector_area_entered(area):
+func _on_WaterDetector_area_entered(_area):
 	x_factor = 0.5
 	y_factor = 0.5
 	animatedSprite.speed_scale = 0.6
 
 
-func _on_WaterDetector_area_exited(area):
+func _on_WaterDetector_area_exited(_area):
 	x_factor = 1
 	y_factor = 1
 	animatedSprite.speed_scale = 1
@@ -197,15 +197,15 @@ func animation_finished(animation: AnimatedSprite, animation_name: String) -> bo
 	if animation.animation == animation_name and animation.frame == animation.frames.get_frame_count(animation_name) - 1:
 		finished = true
 	else:
-		false
+		finished = false
 	return finished
 
-func _on_BoxDetector_area_entered(area):
+func _on_BoxDetector_area_entered(_area):
 	x_factor = 0.5
 	animatedSprite.speed_scale = 0.6
 
 
-func _on_BoxDetector_area_exited(area):
+func _on_BoxDetector_area_exited(_area):
 	x_factor = 1
 	animatedSprite.speed_scale = 1
 	

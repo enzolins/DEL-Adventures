@@ -9,9 +9,21 @@
 [ext_resource path="res://Mechanics/Gold Generation/GoldGenerator.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Enemies/Archer/Archer.gd" type="Script" id=8]
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 1 )
 region = Rect2( 512, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 576, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 640, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 1 )
+region = Rect2( 704, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -29,27 +41,15 @@ region = Rect2( 896, 0, 64, 64 )
 atlas = ExtResource( 1 )
 region = Rect2( 960, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 1 )
 region = Rect2( 512, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 1 )
-region = Rect2( 576, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 1 )
-region = Rect2( 640, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 1 )
-region = Rect2( 704, 0, 64, 64 )
-
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
-"frames": [ SubResource( 10 ) ],
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
 "loop": true,
-"name": "Shoot",
+"name": "Idle",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
@@ -57,9 +57,9 @@ animations = [ {
 "name": "Walk",
 "speed": 7.0
 }, {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"frames": [ SubResource( 10 ) ],
 "loop": true,
-"name": "Idle",
+"name": "Shoot",
 "speed": 5.0
 } ]
 
@@ -109,6 +109,7 @@ modulate = Color( 0, 1, 0.0392157, 1 )
 shape = SubResource( 15 )
 
 [node name="Hitbox" parent="." instance=ExtResource( 4 )]
+collision_mask = 4
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 modulate = Color( 0, 0, 0, 1 )

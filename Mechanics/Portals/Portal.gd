@@ -25,7 +25,7 @@ func _on_Button_pressed():
 func _on_Button_unpressed():
 	close_portal()
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 		if animation_finished(animated_sprite, "Open"):
 			idle_portal()
 		if animation_finished(animated_sprite, "Close"):
@@ -36,5 +36,5 @@ func animation_finished(animation: AnimatedSprite, animation_name: String) -> bo
 	if animation.animation == animation_name and animation.frame == animation.frames.get_frame_count(animation_name) - 1:
 		finished = true
 	else:
-		false
+		finished = false
 	return finished

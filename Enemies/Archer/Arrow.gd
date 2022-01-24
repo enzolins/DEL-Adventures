@@ -11,11 +11,11 @@ func destroy():
 	queue_free()
 
 
-func _on_Arrow_area_entered(area):
+func _on_Arrow_area_entered(_area):
 	destroy()
 
 
-func _on_Arrow_body_entered(body):
+func _on_Arrow_body_entered(_body):
 	destroy()
 
 

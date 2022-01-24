@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/idle4.png-b1106fa82904b1c6873b69833f7e6dce.stex"
+path="res://.import/alien6 bullet3.png-9617c592e3cb85eae781336a2b7b9918.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemies/Random/eye demon/idle4.png"
-dest_files=[ "res://.import/idle4.png-b1106fa82904b1c6873b69833f7e6dce.stex" ]
+source_file="res://Enemies/Random/Demon Eye/Projectiles/Red/alien6 bullet3.png"
+dest_files=[ "res://.import/alien6 bullet3.png-9617c592e3cb85eae781336a2b7b9918.stex" ]
 
 [params]
 

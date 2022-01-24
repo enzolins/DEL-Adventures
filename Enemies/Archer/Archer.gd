@@ -122,12 +122,12 @@ func _on_Stats_noHealth():
 func shootArrow():
 	var player = playerDetectionZone.player
 	if player != null:
-		#var direction = (player.global_position - self.global_position).normalized()
-		var direction = player.global_position
+		var direction = playerDetectionZone.playerHead()
 		direction.y += 5 #MAKES ARROWS GO STRAIGHT
 		var arrow = ARROW.instance()
 		get_tree().current_scene.add_child(arrow)
 		arrow.global_position = self.global_position
+		arrow.global_position.y -= 5
 		var arrowRotation = self.global_position.direction_to(direction).angle()
 		arrow.rotation = arrowRotation
 		timer.start()

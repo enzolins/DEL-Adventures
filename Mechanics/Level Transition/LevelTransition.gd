@@ -4,8 +4,9 @@ extends Area2D
 export(String, FILE, "*.tscn, *.scn") var targetScene
 
 func _physics_process(_delta):
-	if get_overlapping_bodies().size() > 0 and targetScene != null:
-		nextLevel()
+	if monitoring == true:
+		if get_overlapping_bodies().size() > 0 and targetScene != null:
+			nextLevel()
 
 func nextLevel():
 	var ERR = get_tree().change_scene(targetScene)

@@ -1,0 +1,52 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Enemies/Random/Demon Eye/Projectiles/Red/alien6 impact3.png" type="Texture" id=1]
+[ext_resource path="res://Enemies/Random/Demon Eye/Projectiles/Red/alien6 bullet1.png" type="Texture" id=2]
+[ext_resource path="res://Enemies/Random/Demon Eye/Projectiles/Red/alien6 bullet3.png" type="Texture" id=3]
+[ext_resource path="res://Enemies/Random/Demon Eye/Projectiles/Red/alien6 bullet2.png" type="Texture" id=4]
+[ext_resource path="res://Enemies/Random/Demon Eye/Projectiles/Red/alien6 impact4.png" type="Texture" id=5]
+[ext_resource path="res://Enemies/Random/Demon Eye/Projectiles/Red/alien6 impact1.png" type="Texture" id=6]
+[ext_resource path="res://Enemies/Random/Demon Eye/Projectiles/Red/alien6 impact2.png" type="Texture" id=7]
+[ext_resource path="res://Enemies/Random/Demon Eye/Projectiles/Red/alien6 bullet4.png" type="Texture" id=8]
+[ext_resource path="res://Mechanics/Hitbox and Hurbox/Hitbox.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Enemies/Random/Demon Eye/DemonEyeProjectile.gd" type="Script" id=10]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 1 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "Impact",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 15.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 6.0
+height = 34.0
+
+[node name="DemonEyeProjectile" groups=["Projectile"] instance=ExtResource( 9 )]
+scale = Vector2( 0.25, 0.25 )
+collision_layer = 512
+collision_mask = 5
+script = ExtResource( 10 )
+SPEED = 200
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+frames = SubResource( 1 )
+animation = "Idle"
+flip_h = true
+
+[node name="CollisionShape2D" parent="." index="1"]
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="2"]
+scale = Vector2( 3.3, 1.5 )
+
+[connection signal="area_entered" from="." to="." method="_on_DemonEyeProjectile_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_DemonEyeProjectile_body_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
