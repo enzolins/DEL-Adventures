@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Camera/MainCamera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Mechanics/Portals/Portal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Enemies/Random/Demon Eye/DemonEye.tscn" type="PackedScene" id=7]
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Environment/Chests/Chest.tscn" type="PackedScene" id=9]
 
 [node name="TestingLevel" type="Node2D"]
 position = Vector2( 213, 121 )
@@ -50,6 +51,9 @@ position = Vector2( -151, 0 )
 [node name="DemonEye" parent="." instance=ExtResource( 7 )]
 position = Vector2( 240, -13 )
 
+[node name="Chest" parent="." instance=ExtResource( 9 )]
+position = Vector2( 52, 19 )
+
 [node name="UI" parent="." instance=ExtResource( 8 )]
 
 [connection signal="pressed" from="Button" to="Portal" method="_on_Button_pressed"]
@@ -64,4 +68,6 @@ position = Vector2( 240, -13 )
 [editable path="DemonEye/Hurtbox"]
 [editable path="DemonEye/Hitbox"]
 [editable path="DemonEye/PlayerDetectionZone"]
+[editable path="Chest"]
+[editable path="Chest/PlayerDetectionZone"]
 [editable path="UI"]

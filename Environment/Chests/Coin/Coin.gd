@@ -22,7 +22,6 @@ func _ready():
 	velocity.y = jump_velocity
 	#velocity.x = rand_range(-range_X,range_X)
 	velocity.x = range_X
-	print(position.x)
 
 func _physics_process(delta):
 	var player = playerDetectionZone.player

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Background/ParallaxBackground.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Tilesets/GrassTileMap.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Environment/Particles/Leaf/LeafParticles.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Environment/EnvironmentTileMap.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Enemies/Random/Demon Eye/DemonEye.tscn" type="PackedScene" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 71, 10 )
@@ -97,8 +98,8 @@ position = Vector2( 443, 173 )
 [node name="Archer2" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 665, 79 )
 
-[node name="Archer3" parent="Enemies" instance=ExtResource( 9 )]
-position = Vector2( 851, 77 )
+[node name="DemonEye" parent="Enemies" instance=ExtResource( 20 )]
+position = Vector2( 840, 83 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 42, 240 )

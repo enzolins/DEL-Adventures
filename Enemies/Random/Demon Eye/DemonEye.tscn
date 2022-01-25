@@ -10,22 +10,6 @@
 [ext_resource path="res://Mechanics/Player Detection Zone/PlayerDetectionZone.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Mechanics/Hitbox and Hurbox/Hitbox.tscn" type="PackedScene" id=9]
 
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 3 )
-region = Rect2( 16, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 3 )
-region = Rect2( 32, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 3 )
-region = Rect2( 48, 0, 16, 16 )
-
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 16, 16 )
@@ -42,8 +26,29 @@ region = Rect2( 32, 0, 16, 16 )
 atlas = ExtResource( 3 )
 region = Rect2( 48, 0, 16, 16 )
 
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 3 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 3 )
+region = Rect2( 48, 0, 16, 16 )
+
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), ExtResource( 4 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 3.0
+}, {
 "frames": [ SubResource( 2 ), SubResource( 1 ) ],
 "loop": false,
 "name": "LookLeft",
@@ -53,11 +58,6 @@ animations = [ {
 "loop": false,
 "name": "LookRight",
 "speed": 2.0
-}, {
-"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), ExtResource( 4 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 3.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=8]
