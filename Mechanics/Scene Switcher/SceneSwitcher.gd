@@ -4,6 +4,7 @@ onready var currentLevel = $MainMenu
 
 func _ready():
 	currentLevel.connect("levelChanged",self,"handleLevelChange")
+	currentLevel.connect("changeScene",self,"goto_scene")
 	
 func handleLevelChange(currentLevelName: String):
 	var nextLevel

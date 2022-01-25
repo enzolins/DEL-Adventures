@@ -25,7 +25,7 @@ func _physics_process(_delta):
 			animatedSprite.play("Opened")
 			collision.position.y = -1
 			var coin = Coin.instance()
-			get_tree().current_scene.add_child(coin)
+			get_tree().get_root().call_deferred("add_child", coin)
 			coin.global_position = global_position
 	else:
 		e.visible = false

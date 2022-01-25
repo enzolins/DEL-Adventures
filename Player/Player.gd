@@ -164,7 +164,7 @@ func _on_Hurtbox_area_entered(area):
 		hurtbox.startInvencibility(0.5)
 		hurtbox.createHitEffect()
 		var playerHurtSound = PlayerHurtSound.instance()
-		get_tree().current_scene.add_child(playerHurtSound)
+		get_tree().get_root().call_deferred("add_child", playerHurtSound)
 		
 func disbleSwordCollision():
 	if timer.time_left == 0:

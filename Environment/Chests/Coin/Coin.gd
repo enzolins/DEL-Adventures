@@ -31,7 +31,7 @@ func _physics_process(delta):
 	
 	if player != null: # DETECTS IF THE PLAYER IS NEARBY
 		var coinSFX = CoinSFX.instance()
-		get_tree().current_scene.add_child(coinSFX)
+		get_tree().get_root().call_deferred("add_child", coinSFX)
 		PlayerStats.setGold(goldGenerator.generateGold())
 		queue_free()
 	

@@ -8,7 +8,6 @@
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource( 4 )
-levelName = "mainMenu"
 
 [node name="Control" type="Control" parent="."]
 margin_right = 426.0
@@ -71,7 +70,6 @@ __meta__ = {
 stream = ExtResource( 5 )
 volume_db = -10.0
 autoplay = true
-bus = "BGM"
 
 [connection signal="pressed" from="Control/Iniciar" to="." method="_on_Iniciar_pressed"]
 [connection signal="pressed" from="Control/Sair" to="." method="_on_Sair_pressed"]

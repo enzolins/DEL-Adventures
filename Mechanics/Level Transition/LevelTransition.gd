@@ -5,12 +5,13 @@ export(String, FILE, "*.tscn, *.scn") var targetScene
 
 func _physics_process(_delta):
 	if monitoring == true:
-		if get_overlapping_bodies().size() > 0 and targetScene != null:
+		if get_overlapping_bodies().size() > 0 and String(targetScene) != "":
 			nextLevel()
 
 func nextLevel():
 	var ERR = get_tree().change_scene(targetScene)
-
+	var current_scene = get_parent()
+	current_scene.queue_free()
 	if ERR != OK:
 		pass
 

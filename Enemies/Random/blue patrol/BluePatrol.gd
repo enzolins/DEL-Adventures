@@ -96,8 +96,8 @@ func chasePlayer(delta):
 
 func _on_Hurtbox_area_entered(area):
 	var effect = HitEffect.instance()#DON'T KN0W HOW THE FUNC CREATEHITEFFECT WASN'T WORKING
-	var main = get_tree().current_scene
-	main.add_child(effect)
+	var main = get_tree().get_root()
+	main.call_deferred("add_child", effect)
 	effect.global_position = global_position
 	stats.health -= area.damage
 	knockback = area.knockback_vector * KNOCKBACK_SPEED

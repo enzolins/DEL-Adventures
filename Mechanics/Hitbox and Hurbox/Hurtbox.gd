@@ -12,8 +12,8 @@ onready var collisionShape = $CollisionShape2D
 
 func createHitEffect():
 	var effect = HitEffect.instance()
-	var main = get_tree().current_scene
-	main.add_child(effect)
+	var main = get_tree().get_root()
+	main.call_deferred("add_child", effect)
 	effect.global_position = global_position
 
 func setInvencible(value):
