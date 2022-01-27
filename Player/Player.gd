@@ -45,14 +45,16 @@ enum{
 	MOVE,
 	JUMP
 	ATTACK
+	DEAD
 }
 var state = MOVE
 
 #ON INITIALIZATION
 func _ready():
 	randomize()
+	god_mode(false)
 	animatedSprite.play("Idle")
-	stats.connect("noHealth", self, "queue_free")
+	stats.connect("noHealth", self, "dead")
 	swordHitbox.knockback_vector = Vector2.RIGHT
 	swordCollision.disabled = true
 
@@ -68,6 +70,8 @@ func _physics_process(delta):
 			jump_state(delta)
 		ATTACK:
 			attack_state(delta)
+		DEAD:
+			dead_state(delta)
 
 
 #MOVING THE CHARACTER - STATE
@@ -144,6 +148,16 @@ func attack_state(_delta):
 				attack = 1
 				state = MOVE
 
+#DEAD STATE
+func dead_state(_delta):
+	animatedSprite.play("Die")
+	god_mode(true)
+	if animation_finished(animatedSprite, "Die"):
+		animatedSprite.playing = false
+
+func dead():
+	state = DEAD
+
 
 func get_gravity() -> float:
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
@@ -214,3 +228,7 @@ func check_box_collision():
 		var collision = get_slide_collision(index)
 		if collision.collider.is_in_group("Boxes"):
 			collision.collider.apply_central_impulse(-collision.normal * inertia)
+
+func god_mode(active:bool):
+	set_collision_layer_bit(1, !active)
+	hurtbox.set_collision_layer_bit(2, !active)

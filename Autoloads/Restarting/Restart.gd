@@ -8,4 +8,5 @@ func _process(_delta):
 		PlayerStats.restartGold(0)
 		MusicController.playMusic()
 		Global.fromLevel = null
-		queue_free()
+		GameOver.set_game_over_screen_visibility(false)
+		get_parent().queue_free()

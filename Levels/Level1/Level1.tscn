@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tilesets/GrassTileMap.tscn" type="PackedScene" id=2]
@@ -16,6 +16,9 @@
 [ext_resource path="res://Environment/Particles/Leaf/LeafParticles.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Tilesets/BasicTileset.tscn" type="PackedScene" id=18]
 
+[sub_resource type="StreamTexture" id=2]
+load_path = "res://.import/Light2.png-f7a32da8f3385e118544154e713d8076.stex"
+
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 70 )
 
@@ -23,6 +26,17 @@ extents = Vector2( 10, 70 )
 position = Vector2( 16, 0 )
 script = ExtResource( 11 )
 levelName = "Level1"
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 500, 51.5 )
+scale = Vector2( 1.355, 0.805 )
+texture = SubResource( 2 )
+color = Color( 0.878431, 0.913725, 0.290196, 1 )
+energy = 0.6
+shadow_enabled = true
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="LeafParticles" parent="." instance=ExtResource( 16 )]
 position = Vector2( 28, 177 )

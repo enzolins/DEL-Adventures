@@ -10,7 +10,7 @@ onready var camera = $MainCamera
 
 func addRestart():
 	var restart= Restart.instance()
-	get_parent().add_child(restart)
+	add_child(restart)
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

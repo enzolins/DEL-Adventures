@@ -32,12 +32,12 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Restart="*res://Autoloads/Restarting/Restart.tscn"
 PlayerStats="*res://Player/PlayerStats.tscn"
 MusicController="*res://Autoloads/Music Controller/MusicController.tscn"
 Global="*res://Autoloads/Global/Global.tscn"
 PauseMenu="*res://Autoloads/Pause Menu/PauseMenu.tscn"
 CanPause="*res://Mechanics/Can Pause/CanPause.tscn"
+GameOver="*res://UI/Game Over Screen/GameOver.tscn"
 
 [display]
 

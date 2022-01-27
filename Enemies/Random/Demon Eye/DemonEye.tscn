@@ -87,6 +87,7 @@ position = Vector2( 0, 1 )
 shape = SubResource( 8 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 5 )]
+collision_layer = 8
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 modulate = Color( 0, 1, 0.109804, 1 )
@@ -118,6 +119,9 @@ MIN = 1
 [node name="AttackRate" type="Timer" parent="."]
 wait_time = 1.1
 one_shot = true
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="noHealth" from="Stats" to="." method="_on_Stats_noHealth"]
 
 [editable path="Hurtbox"]
 [editable path="Hitbox"]

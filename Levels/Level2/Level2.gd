@@ -21,7 +21,7 @@ func _ready():
 
 func addRestart():
 	var restart= Restart.instance()
-	get_parent().add_child(restart)
+	add_child(restart)
 
 
 func _on_CameraLimitsSwitcher_body_entered(body):

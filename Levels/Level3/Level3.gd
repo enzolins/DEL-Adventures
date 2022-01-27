@@ -14,4 +14,4 @@ func _ready():
 		
 func addRestart():
 	var restart= Restart.instance()
-	get_parent().add_child(restart)
+	add_child(restart)
