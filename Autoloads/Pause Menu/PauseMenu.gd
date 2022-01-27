@@ -26,6 +26,7 @@ func _input(event):
 
 
 func _on_Continuar_pressed():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	get_tree().paused = false
 	menuOptions.visible = false
 	unpause.play(0.0)

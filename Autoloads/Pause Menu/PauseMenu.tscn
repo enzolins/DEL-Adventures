@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Fonts/dogica.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/DogicaMenu.tres" type="DynamicFont" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Autoloads/Pause Menu/Grabber.png" type="Texture" id=10]
 [ext_resource path="res://Autoloads/Pause Menu/SlideBar.png" type="Texture" id=11]
 [ext_resource path="res://UI/Instructions/Instructions.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Autoloads/Pause Menu/MainMenu.gd" type="Script" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 outline_color = Color( 0, 0, 0, 1 )
@@ -79,7 +80,7 @@ layer = 2
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 0.0, 240.0, -29.0, 103.0, 117.0, 131.0, 145.0, 159.0, 173.0, 187.0, 201.0, 215.0, 229.0 ],
-"_edit_vertical_guides_": [ 0.0, 426.0, 213.0, 426.0, 852.0, 639.0, 457.0, 670.0, 1278.0, 1065.0 ]
+"_edit_vertical_guides_": [ 0.0, 426.0, 213.0, 426.0, 852.0, 639.0, 457.0, 670.0, 1278.0, 1065.0, 159.0, 268.0 ]
 }
 
 [node name="MenuOptions" type="Control" parent="."]
@@ -103,6 +104,7 @@ __meta__ = {
 [node name="MainMenu" type="Control" parent="MenuOptions"]
 margin_right = 40.0
 margin_bottom = 40.0
+script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -121,11 +123,12 @@ __meta__ = {
 
 [node name="Continuar" type="Button" parent="MenuOptions/MainMenu"]
 modulate = Color( 0, 0.368627, 1, 1 )
-margin_left = 159.0
-margin_top = 117.0
-margin_right = 315.0
-margin_bottom = 137.0
+margin_left = 135.0
+margin_top = 114.0
+margin_right = 291.0
+margin_bottom = 134.0
 rect_scale = Vector2( 0.7, 0.7 )
+rect_pivot_offset = Vector2( 78, 10 )
 focus_mode = 0
 mouse_default_cursor_shape = 2
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -137,11 +140,12 @@ __meta__ = {
 
 [node name="Opcoes" type="Button" parent="MenuOptions/MainMenu"]
 modulate = Color( 0, 0.368627, 1, 1 )
-margin_left = 159.0
-margin_top = 145.0
-margin_right = 315.0
-margin_bottom = 165.0
+margin_left = 135.0
+margin_top = 142.0
+margin_right = 291.0
+margin_bottom = 162.0
 rect_scale = Vector2( 0.7, 0.7 )
+rect_pivot_offset = Vector2( 78, 10 )
 focus_mode = 0
 mouse_default_cursor_shape = 2
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -153,11 +157,12 @@ __meta__ = {
 
 [node name="Controles" type="Button" parent="MenuOptions/MainMenu"]
 modulate = Color( 0, 0.368627, 1, 1 )
-margin_left = 159.0
-margin_top = 173.0
-margin_right = 315.0
-margin_bottom = 193.0
+margin_left = 135.0
+margin_top = 170.0
+margin_right = 291.0
+margin_bottom = 190.0
 rect_scale = Vector2( 0.7, 0.7 )
+rect_pivot_offset = Vector2( 78, 10 )
 focus_mode = 0
 mouse_default_cursor_shape = 2
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -169,11 +174,12 @@ __meta__ = {
 
 [node name="Sair" type="Button" parent="MenuOptions/MainMenu"]
 modulate = Color( 0, 0.368627, 1, 1 )
-margin_left = 159.0
-margin_top = 201.0
-margin_right = 315.0
-margin_bottom = 221.0
+margin_left = 135.0
+margin_top = 198.0
+margin_right = 291.0
+margin_bottom = 218.0
 rect_scale = Vector2( 0.7, 0.7 )
+rect_pivot_offset = Vector2( 78, 10 )
 focus_mode = 0
 mouse_default_cursor_shape = 2
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -192,6 +198,8 @@ focus_mode = 0
 mouse_default_cursor_shape = 2
 custom_fonts/font = ExtResource( 8 )
 text = "Tela Cheia"
+
+[node name="Tween" type="Tween" parent="MenuOptions/MainMenu"]
 
 [node name="OptionsMenu" type="Control" parent="MenuOptions"]
 margin_left = 426.0
@@ -344,9 +352,17 @@ stream = ExtResource( 6 )
 volume_db = -10.0
 bus = "SFX"
 
+[connection signal="mouse_entered" from="MenuOptions/MainMenu/Continuar" to="MenuOptions/MainMenu" method="_on_Continuar_mouse_entered"]
+[connection signal="mouse_exited" from="MenuOptions/MainMenu/Continuar" to="MenuOptions/MainMenu" method="_on_Continuar_mouse_exited"]
 [connection signal="pressed" from="MenuOptions/MainMenu/Continuar" to="." method="_on_Continuar_pressed"]
+[connection signal="mouse_entered" from="MenuOptions/MainMenu/Opcoes" to="MenuOptions/MainMenu" method="_on_Opcoes_mouse_entered"]
+[connection signal="mouse_exited" from="MenuOptions/MainMenu/Opcoes" to="MenuOptions/MainMenu" method="_on_Opcoes_mouse_exited"]
 [connection signal="pressed" from="MenuOptions/MainMenu/Opcoes" to="MenuOptions" method="_on_Opcoes_pressed"]
+[connection signal="mouse_entered" from="MenuOptions/MainMenu/Controles" to="MenuOptions/MainMenu" method="_on_Controles_mouse_entered"]
+[connection signal="mouse_exited" from="MenuOptions/MainMenu/Controles" to="MenuOptions/MainMenu" method="_on_Controles_mouse_exited"]
 [connection signal="pressed" from="MenuOptions/MainMenu/Controles" to="MenuOptions" method="_on_Controles_pressed"]
+[connection signal="mouse_entered" from="MenuOptions/MainMenu/Sair" to="MenuOptions/MainMenu" method="_on_Sair_mouse_entered"]
+[connection signal="mouse_exited" from="MenuOptions/MainMenu/Sair" to="MenuOptions/MainMenu" method="_on_Sair_mouse_exited"]
 [connection signal="pressed" from="MenuOptions/MainMenu/Sair" to="MenuOptions" method="_on_Sair_pressed"]
 [connection signal="pressed" from="MenuOptions/MainMenu/FullScreen" to="MenuOptions" method="_on_FullScreen_pressed"]
 [connection signal="pressed" from="MenuOptions/OptionsMenu/Voltar" to="MenuOptions" method="_on_Voltar_pressed"]

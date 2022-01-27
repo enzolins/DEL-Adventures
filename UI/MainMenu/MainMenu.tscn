@@ -8,6 +8,10 @@
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 131.0, 145.0, 179.0, 193.0 ],
+"_edit_vertical_guides_": [ 184.0, 250.0 ]
+}
 
 [node name="Control" type="Control" parent="."]
 margin_right = 426.0
@@ -38,26 +42,31 @@ text = "DEL ADVENTURES"
 
 [node name="Iniciar" type="Button" parent="Control"]
 modulate = Color( 0, 0.25098, 1, 1 )
-margin_left = 184.0
+margin_left = 170.0
 margin_top = 128.0
-margin_right = 278.0
+margin_right = 264.0
 margin_bottom = 148.0
 rect_scale = Vector2( 0.7, 0.7 )
+rect_pivot_offset = Vector2( 47, 10 )
 mouse_default_cursor_shape = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "INICIAR"
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Sair" type="Button" parent="Control"]
 modulate = Color( 0, 0.25098, 1, 1 )
-margin_left = 184.0
+margin_left = 170.0
 margin_top = 176.0
-margin_right = 278.0
+margin_right = 264.0
 margin_bottom = 196.0
 rect_scale = Vector2( 0.7, 0.7 )
+rect_pivot_offset = Vector2( 47, 10 )
 mouse_default_cursor_shape = 2
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = ExtResource( 3 )
@@ -66,10 +75,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Tween" type="Tween" parent="Control"]
+
 [node name="BGMMainMenu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 volume_db = -10.0
 autoplay = true
 
+[connection signal="mouse_entered" from="Control/Iniciar" to="." method="_on_Iniciar_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Iniciar" to="." method="_on_Iniciar_mouse_exited"]
 [connection signal="pressed" from="Control/Iniciar" to="." method="_on_Iniciar_pressed"]
+[connection signal="mouse_entered" from="Control/Sair" to="." method="_on_Sair_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Sair" to="." method="_on_Sair_mouse_exited"]
 [connection signal="pressed" from="Control/Sair" to="." method="_on_Sair_pressed"]
