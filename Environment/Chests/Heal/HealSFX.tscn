@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Effects/SFx/Heal.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Effects/SFx/Heal.wav" type="AudioStream" id=1]
 [ext_resource path="res://Environment/Chests/Heal/HealSFX.gd" type="Script" id=2]
 
-[node name="HealSFX" type="AudioStreamPlayer"]
+[node name="HealSFX" type="AudioStreamPlayer2D"]
 stream = ExtResource( 1 )
 volume_db = -15.0
 bus = "SFX"

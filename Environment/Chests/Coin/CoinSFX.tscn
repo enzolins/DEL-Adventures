@@ -6,6 +6,7 @@
 [node name="CoinSFX" type="AudioStreamPlayer2D"]
 stream = ExtResource( 1 )
 volume_db = -10.0
+bus = "SFX"
 script = ExtResource( 2 )
 
 [connection signal="finished" from="." to="." method="_on_CoinSFX_finished"]
