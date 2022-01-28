@@ -28,7 +28,7 @@ _global_script_class_icons={
 
 config/name="DEL Adventures"
 run/main_scene="res://UI/MainMenu/MainMenu.tscn"
-config/icon="res://icon.png"
+config/icon="res://UI/Icons/RPGIconPNG.png"
 
 [autoload]
 
@@ -135,7 +135,7 @@ ui_ctrl={
 2d_physics/layer_8="EnemyCollisions"
 2d_physics/layer_9="LevelTransition"
 2d_physics/layer_10="Projectile"
-2d_physics/layer_11="EnemyBoundaries"
+2d_physics/layer_11="BoxTopCollider"
 2d_physics/layer_12="Water"
 2d_physics/layer_13="Box"
 2d_physics/layer_14="ButtonInteraction"

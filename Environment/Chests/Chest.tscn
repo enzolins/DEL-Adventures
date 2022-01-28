@@ -36,7 +36,7 @@ extents = Vector2( 8, 7 )
 resource_name = "Pulse"
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("E:rect_scale")
+tracks/0/path = NodePath("E:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -44,14 +44,14 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ Vector2( 1.2, 1.2 ), Vector2( 0.8, 0.8 ) ]
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.75, 0.75 ) ]
 }
 
 [sub_resource type="Animation" id=9]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("E:rect_scale")
+tracks/0/path = NodePath("E:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -60,7 +60,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 1.2, 1.2 ) ]
+"values": [ Vector2( 0.7, 0.7 ) ]
 }
 
 [node name="Chest" type="Node2D"]
@@ -82,18 +82,10 @@ position = Vector2( 0, 1 )
 shape = SubResource( 7 )
 one_way_collision = true
 
-[node name="E" type="TextureRect" parent="."]
-margin_left = -5.0
-margin_top = -24.0
-margin_right = 5.0
-margin_bottom = -14.0
-rect_scale = Vector2( 1.2, 1.2 )
-rect_pivot_offset = Vector2( 5, 5 )
+[node name="E" type="Sprite" parent="."]
+position = Vector2( 0, -17 )
+scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 3 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Pulse = SubResource( 8 )

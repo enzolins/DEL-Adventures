@@ -30,6 +30,8 @@ var y_factor = 1
 var is_in_water = false
 #ATTACK ALTERNATION
 var attack = 1
+#CHECK IF PLAYER IS ON TOP OF A BOX
+var on_top: bool = false
 
 #NODE VARIABLES
 onready var animatedSprite = $AnimatedSprite
@@ -165,7 +167,8 @@ func get_gravity() -> float:
 #MOVING THE CHARACTER - FUNCTION
 func move():
 	velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
-	check_box_collision()
+	if on_top == false:
+		check_box_collision()
 	Global.walkDirection = direction
 
 func _on_AnimatedSprite_animation_finished():
@@ -232,3 +235,11 @@ func check_box_collision():
 func god_mode(active:bool):
 	set_collision_layer_bit(1, !active)
 	hurtbox.set_collision_layer_bit(2, !active)
+
+
+func _on_TopBoxDetector_area_entered(area):
+	on_top = true
+
+
+func _on_TopBoxDetector_area_exited(area):
+	on_top = false
