@@ -38,6 +38,7 @@ Global="*res://Autoloads/Global/Global.tscn"
 PauseMenu="*res://Autoloads/Pause Menu/PauseMenu.tscn"
 CanPause="*res://Mechanics/Can Pause/CanPause.tscn"
 GameOver="*res://UI/Game Over Screen/GameOver.tscn"
+BossStatsPlaceHolder="*res://Enemies/Bosses/BossStatsPlaceHolder.tscn"
 
 [display]
 

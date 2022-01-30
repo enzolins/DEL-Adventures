@@ -1,17 +1,15 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Camera/MainCamera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Tilesets/BasicTileset.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Mechanics/Button and Box/Box.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Mechanics/Button and Box/Button.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Mechanics/Portals/Portal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UI/Boss Health Bar/BossLifeBar.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Enemies/Random/Demon Eye/DemonEye.tscn" type="PackedScene" id=7]
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Environment/Chests/Chest.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Levels/Testing/Light2.png" type="Texture" id=10]
 [ext_resource path="res://Background/ParallaxBackground.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Levels/Testing/TestingLevel.gd" type="Script" id=12]
+[ext_resource path="res://Enemies/Bosses/Soulshard Slayer/SoulshardSlayer.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -33,7 +31,7 @@ script = ExtResource( 12 )
 environment = SubResource( 1 )
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 71, -100 )
+position = Vector2( 75, -100 )
 scale = Vector2( 0.9375, 1 )
 texture = ExtResource( 10 )
 color = Color( 0.878431, 0.913725, 0.290196, 1 )
@@ -45,20 +43,13 @@ shadow_enabled = true
 [node name="BasicTileset" parent="." instance=ExtResource( 3 )]
 tile_data = PoolIntArray( -65525, 0, 0, -65524, 1, 0, -65523, 1, 0, -65522, 1, 0, -65521, 1, 0, -65520, 1, 0, -65519, 2, 0, 10, 0, 0, 18, 2, 0, 131053, 0, 0, 131054, 1, 0, 131055, 1, 0, 131056, 1, 0, 131057, 1, 0, 131058, 1, 0, 131059, 1, 0, 131060, 1, 0, 131061, 1, 0, 131062, 1, 0, 131063, 1, 0, 131064, 1, 0, 131065, 1, 0, 131066, 1, 0, 131067, 1, 0, 131068, 1, 0, 131069, 1, 0, 131070, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 65545, 1, 0, 65551, 4, 0, 65555, 1, 0, 65556, 1, 0, 65557, 1, 0, 65558, 1, 0, 65559, 1, 0, 65560, 1, 0, 65561, 1, 0, 65562, 1, 0, 65563, 2, 0, 131083, 4, 0, 131084, 4, 0, 131085, 4, 0, 131086, 4, 0, 131087, 4, 0, 131088, 4, 0, 131089, 4, 0, 196618, 4, 0, 196619, 4, 0, 196620, 4, 0, 196621, 4, 0, 196622, 4, 0, 196623, 4, 0, 196624, 4, 0, 196625, 4, 0, 196626, 4, 0, 327661, 6, 0, 327662, 7, 0, 327663, 7, 0, 327664, 7, 0, 327665, 7, 0, 327666, 7, 0, 327667, 7, 0, 327668, 7, 0, 327669, 7, 0, 327670, 7, 0, 327671, 7, 0, 327672, 7, 0, 327673, 7, 0, 327674, 7, 0, 327675, 7, 0, 327676, 7, 0, 327677, 7, 0, 327678, 7, 0, 327679, 7, 0, 262144, 7, 0, 262145, 7, 0, 262146, 7, 0, 262147, 7, 0, 262148, 7, 0, 262149, 7, 0, 262150, 7, 0, 262151, 7, 0, 262152, 7, 0, 262153, 7, 0, 262154, 7, 0, 262155, 7, 0, 262156, 7, 0, 262157, 7, 0, 262158, 7, 0, 262159, 7, 0, 262160, 7, 0, 262161, 7, 0, 262162, 7, 0, 262163, 7, 0, 262164, 7, 0, 262165, 7, 0, 262166, 7, 0, 262167, 7, 0, 262168, 7, 0, 262169, 7, 0, 262170, 7, 0, 262171, 8, 0 )
 
-[node name="Button" parent="." instance=ExtResource( 5 )]
-position = Vector2( -96, 26 )
-
-[node name="Box" parent="." instance=ExtResource( 4 )]
-position = Vector2( -35, -40 )
-
-[node name="Portal" parent="." instance=ExtResource( 6 )]
-position = Vector2( -151, 0 )
-
-[node name="Chest" parent="." instance=ExtResource( 9 )]
-position = Vector2( 52, 19 )
-healing_chest = true
+[node name="SoulshardSlayer" parent="." instance=ExtResource( 13 )]
+position = Vector2( -171, -35 )
+MAX_SPEED = 75
+GRAVITY = 900
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 82, 0 )
 
 [node name="Hurtbox" parent="Player" index="3"]
 visible = true
@@ -67,7 +58,7 @@ visible = true
 remote_path = NodePath("../../MainCamera")
 
 [node name="MainCamera" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 0 )
+position = Vector2( 82, 0 )
 scale = Vector2( 1, 1.00434 )
 
 [node name="TopLeft" parent="MainCamera/Limits" index="0"]
@@ -86,12 +77,8 @@ position = Vector2( 240, -13 )
 
 [node name="UI" parent="." instance=ExtResource( 8 )]
 
-[connection signal="pressed" from="Button" to="Portal" method="_on_Button_pressed"]
-[connection signal="unpressed" from="Button" to="Portal" method="_on_Button_unpressed"]
+[node name="BossLifeBar" parent="." instance=ExtResource( 4 )]
 
-[editable path="Box"]
-[editable path="Chest"]
-[editable path="Chest/PlayerDetectionZone"]
 [editable path="Player"]
 [editable path="Player/HitboxPivot/SwordHitbox"]
 [editable path="Player/Hurtbox"]

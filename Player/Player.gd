@@ -6,6 +6,7 @@ const PlayerHurtSound = preload("res://Effects/SFx/PlayerHurtSound.tscn")
 export var MAX_SPEED = 140
 export var ACCELERATION = 650
 export var FRICTION = 8000
+export var GOD_MODE: bool = false
 
 #GRAVITY - JUMP
 export var jump_height : float = 70
@@ -54,7 +55,7 @@ var state = MOVE
 #ON INITIALIZATION
 func _ready():
 	randomize()
-	god_mode(false)
+	god_mode(GOD_MODE)
 	animatedSprite.play("Idle")
 	stats.connect("noHealth", self, "dead")
 	swordHitbox.knockback_vector = Vector2.RIGHT
@@ -152,10 +153,12 @@ func attack_state(_delta):
 
 #DEAD STATE
 func dead_state(_delta):
+	velocity.x = 0
 	animatedSprite.play("Die")
 	god_mode(true)
 	if animation_finished(animatedSprite, "Die"):
 		animatedSprite.playing = false
+	move()
 
 func dead():
 	state = DEAD

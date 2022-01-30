@@ -15,12 +15,13 @@ onready var animationPlayer = $AnimationPlayer
 
 var velocity = Vector2.ZERO
 var friction = 100
+var increase_max_health: bool = false
 
 func _ready():
 	#CHOSE RANDOM VELOCITY ON THE X AXIS
 	velocity.y = jump_velocity
-	#velocity.x = rand_range(-range_X,range_X)
-	velocity.x = range_X
+	velocity.x = rand_range(-range_X,range_X)
+	#velocity.x = range_X
 
 func _physics_process(delta):
 	var player = playerDetectionZone.player
@@ -30,8 +31,11 @@ func _physics_process(delta):
 	
 	if player != null: # DETECTS IF THE PLAYER IS NEARBY
 		var healSFX = HealSFX.instance()
-		PlayerStats.max_health += 1
-		PlayerStats.health = PlayerStats.max_health
+		if increase_max_health:
+			PlayerStats.max_health += 1
+			PlayerStats.health = PlayerStats.max_health
+		else:
+			PlayerStats.health = PlayerStats.max_health
 		get_tree().get_root().call_deferred("add_child", healSFX)
 		queue_free()
 	
@@ -40,3 +44,6 @@ func stop(delta): #MAKE THE COIN STOP WHEN IT TOUCHES THE GROUND
 	if is_on_floor():
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 		animationPlayer.play("Pulse")
+		
+func increase_max_health(value: bool):
+	increase_max_health = value

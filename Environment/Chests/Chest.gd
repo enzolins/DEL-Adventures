@@ -12,9 +12,12 @@ onready var animationPlayer = $AnimationPlayer
 onready var e = $E
 
 export var healing_chest: bool = false
+export var increase_max_health: bool = false
 
 func _ready():
 	e.visible = false
+	if increase_max_health:
+		healing_chest = true
 
 func _physics_process(_delta):
 	if is_opened == false:
@@ -29,6 +32,7 @@ func _physics_process(_delta):
 			collision.position.y = -1
 			if healing_chest:
 				var heal = Heal.instance()
+				heal.increase_max_health(increase_max_health)
 				get_tree().get_root().call_deferred("add_child", heal)
 				heal.global_position = global_position
 			else:
