@@ -50,6 +50,7 @@ GRAVITY = 900
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 82, 0 )
+GOD_MODE = true
 
 [node name="Hurtbox" parent="Player" index="3"]
 visible = true

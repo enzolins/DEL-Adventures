@@ -39,6 +39,7 @@ PauseMenu="*res://Autoloads/Pause Menu/PauseMenu.tscn"
 CanPause="*res://Mechanics/Can Pause/CanPause.tscn"
 GameOver="*res://UI/Game Over Screen/GameOver.tscn"
 BossStatsPlaceHolder="*res://Enemies/Bosses/BossStatsPlaceHolder.tscn"
+BossDefeated="*res://UI/Boss Defeated/BossDefeated.tscn"
 
 [display]
 

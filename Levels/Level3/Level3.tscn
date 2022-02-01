@@ -114,6 +114,7 @@ targetScene = "res://Levels/Level4/Level4.tscn"
 [node name="Chest" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1189, 178 )
 healing_chest = true
+increase_max_health = true
 
 [node name="Enemies" type="Node2D" parent="."]
 

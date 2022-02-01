@@ -9,5 +9,6 @@ func _process(_delta):
 		MusicController.playMusic()
 		Global.fromLevel = null
 		GameOver.set_game_over_screen_visibility(false)
+		BossDefeated.set_boss_defeated_screen_visibility(false)
 		CanPause.canPause()
 		get_parent().queue_free()

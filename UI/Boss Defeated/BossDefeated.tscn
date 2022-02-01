@@ -1,0 +1,118 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Effects/SFx/Boss Defeated.wav" type="AudioStream" id=1]
+[ext_resource path="res://Fonts/dogica.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://UI/Boss Defeated/BossDefeated.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+extra_spacing_bottom = 5
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+extra_spacing_bottom = 5
+font_data = ExtResource( 2 )
+
+[sub_resource type="StreamTexture" id=4]
+load_path = "res://.import/tile_0088.png-68656a845e00d1c2f28a775c7b74cc78.stex"
+
+[sub_resource type="Animation" id=2]
+resource_name = "Pulse"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/R:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.8, 0.8 ), Vector2( 1.2, 1.2 ) ]
+}
+
+[node name="BossDefeated" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Control"]
+modulate = Color( 0, 0, 0, 0.627451 )
+margin_right = 426.0
+margin_bottom = 240.0
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="BossKilled" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -72.0
+margin_top = -20.5
+margin_right = 72.0
+margin_bottom = 20.5
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 72, 20 )
+custom_colors/font_color = Color( 0.054902, 1, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0.345098, 0.0392157, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "CHEFÃO DERROTADO"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="BossDefeatedSFX" type="AudioStreamPlayer2D" parent="Control"]
+stream = ExtResource( 1 )
+volume_db = -5.0
+
+[node name="Tween" type="Tween" parent="Control"]
+
+[node name="Reiniciar" type="Label" parent="Control"]
+margin_left = 175.0
+margin_top = 178.0
+margin_right = 329.0
+margin_bottom = 275.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color_shadow = Color( 0.12549, 0.12549, 0.12549, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "PRESSIONE
+
+
+PARA REINICIAR"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="R" type="Sprite" parent="Control"]
+position = Vector2( 213, 196 )
+scale = Vector2( 0.8, 0.8 )
+texture = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Pulse = SubResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[connection signal="tween_all_completed" from="Control/Tween" to="." method="_on_Tween_tween_all_completed"]

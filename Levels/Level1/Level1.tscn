@@ -73,6 +73,7 @@ texture = ExtResource( 7 )
 [node name="Chest" parent="Environment" instance=ExtResource( 15 )]
 position = Vector2( 670, 91 )
 scale = Vector2( 1, 1.00812 )
+healing_chest = true
 
 [node name="Tree" type="Sprite" parent="Environment"]
 position = Vector2( 719, 67.2 )

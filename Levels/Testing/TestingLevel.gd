@@ -8,4 +8,5 @@ func _process(_delta):
 		PlayerStats.restartGold(0)
 		Global.fromLevel = null
 		GameOver.set_game_over_screen_visibility(false)
+		BossDefeated.set_boss_defeated_screen_visibility(false)
 		CanPause.canPause()
