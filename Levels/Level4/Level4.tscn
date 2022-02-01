@@ -58,8 +58,8 @@ __meta__ = {
 }
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 744, 88 )
-scale = Vector2( 1.42, 1.22667 )
+position = Vector2( 744, 95.9995 )
+scale = Vector2( 1.42, 1.25333 )
 texture = SubResource( 5 )
 color = Color( 0.878431, 0.913725, 0.290196, 1 )
 energy = 0.6
@@ -189,7 +189,7 @@ shape = SubResource( 3 )
 
 [node name="UI" parent="." instance=ExtResource( 5 )]
 
-[node name="Level3Pos" type="Position2D" parent="."]
+[node name="PortalPos" type="Position2D" parent="."]
 position = Vector2( 200, 123 )
 
 [node name="LevelTransition" parent="." instance=ExtResource( 21 )]

@@ -19,4 +19,5 @@ func nextLevel():
 
 func _on_LevelTransition_body_entered(_body):
 	Global.fromLevel = get_parent().name
+	print(Global.fromLevel)
 	Global.walkDirection = _body.direction
