@@ -236,7 +236,7 @@ func check_box_collision():
 			collision.collider.apply_central_impulse(-collision.normal * inertia)
 
 func god_mode(active:bool):
-	#set_collision_layer_bit(1, !active)
+	set_collision_layer_bit(1, !active)
 	hurtbox.set_collision_layer_bit(2, !active)
 
 
